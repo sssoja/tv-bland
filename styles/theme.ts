@@ -50,8 +50,7 @@ const space = {
 };
 
 const fonts = {
-  primary: "Helvetica Neue, sans-serif",
-  secondary: "SangBleu, sans-serif",
+  primary: "Nunito, sans-serif",
 };
 
 const borders = {};
