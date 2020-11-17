@@ -50,10 +50,22 @@ const space = {
 };
 
 const fonts = {
-  primary: "Nunito, sans-serif",
+  primary: "NunitoBold, sans-serif",
 };
 
 const borders = {};
+
+export const fontWeights = {
+  light: 300,
+  regular: 400,
+  bold: 600,
+};
+
+export const zIndexes = {
+  behind: -1,
+  inFront: 1,
+  overlay: 1300,
+};
 
 const theme = {
   space,

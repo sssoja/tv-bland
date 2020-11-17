@@ -1,120 +1,152 @@
-// import showImage from "./assets/tv-bland-show.jpeg";
-
-import React, { Fragment } from "react";
+import React from "react";
 import styled from "styled-components";
-import {
-  LayoutProps,
-  layout,
-  typography,
-  TypographyProps,
-  grid,
-  GridProps,
-} from "styled-system";
+import Image from "next/image";
+import Grid from "./Grid";
 
-const ShowListGrid = styled.div<GridProps>`
-  display: grid;
-  ${grid};
-`;
-
-const ShowContainer = styled.div<LayoutProps>`
-  object-fit: contain;
-  height: 100%;
-  ${layout};
-`;
-
-const ShowImage = styled.img<LayoutProps>`
-  height: 100%;
-  width: 100%;
-  ${layout};
-`;
-
-const ShowDescription = styled.p<TypographyProps>`
-  ${typography};
-`;
+const ShowListGrid = styled(Grid)``;
 
 interface ShowProps {
-  name: string;
-  description: string;
+  title: string;
+  rating: string;
   image: string;
   alt: string;
 }
 
 const shows: ShowProps[] = [
   {
-    name: "some name",
-    description: "some description",
-    image: "some-image.png",
+    title: "some title 1",
+    rating: "some rating",
+    image: "/assets/avatar.jpeg",
     alt: "some alt text",
   },
   {
-    name: "some other name",
-    description: "some other description",
-    image: "some-image.png",
+    title: "some other title 2",
+    rating: "some other rating",
+    image: "/assets/tv-bland-show.jpeg",
     alt: "some cool alt text",
   },
   {
-    name: "some name",
-    description: "some description",
-    image: "some-image.png",
+    title: "some title 3",
+    rating: "some rating",
+    image: "/assets/tv-bland-show.jpeg",
     alt: "some alt text",
   },
   {
-    name: "some name",
-    description: "some description",
-    image: "some-image.png",
+    title: "some title 4",
+    rating: "some rating",
+    image: "/assets/tv-bland-show.jpeg",
     alt: "some alt text",
   },
   {
-    name: "some name",
-    description: "some description",
-    image: "some-image.png",
+    title: "some title 5",
+    rating: "some rating",
+    image: "/assets/tv-bland-show.jpeg",
     alt: "some alt text",
   },
   {
-    name: "some name",
-    description: "some description",
-    image: "some-image.png",
+    title: "some title 6",
+    rating: "some rating",
+    image: "/assets/tv-bland-show.jpeg",
     alt: "some alt text",
   },
   {
-    name: "some name",
-    description: "some description",
-    image: "some-image.png",
+    title: "some title 7",
+    rating: "some rating",
+    image: "/assets/tv-bland-show.jpeg",
     alt: "some alt text",
   },
   {
-    name: "some name",
-    description: "some description",
-    image: "some-image.png",
+    title: "some title 8",
+    rating: "some rating",
+    image: "/assets/tv-bland-show.jpeg",
+    alt: "some alt text",
+  },
+  {
+    title: "some title 9",
+    rating: "some rating",
+    image: "/assets/tv-bland-show.jpeg",
+    alt: "some alt text",
+  },
+  {
+    title: "some title 10",
+    rating: "some rating",
+    image: "/assets/tv-bland-show.jpeg",
+    alt: "some alt text",
+  },
+  {
+    title: "some title 11",
+    rating: "some rating",
+    image: "/assets/tv-bland-show.jpeg",
+    alt: "some alt text",
+  },
+  {
+    title: "some title 12",
+    rating: "some rating",
+    image: "/assets/tv-bland-show.jpeg",
+    alt: "some alt text",
+  },
+  {
+    title: "some title 13",
+    rating: "some rating",
+    image: "/assets/tv-bland-show.jpeg",
+    alt: "some alt text",
+  },
+  {
+    title: "some title 14",
+    rating: "some rating",
+    image: "/assets/tv-bland-show.jpeg",
+    alt: "some alt text",
+  },
+  {
+    title: "some title 15",
+    rating: "some rating",
+    image: "/assets/tv-bland-show.jpeg",
+    alt: "some alt text",
+  },
+  {
+    title: "some title 16",
+    rating: "some rating",
+    image: "/assets/tv-bland-show.jpeg",
+    alt: "some alt text",
+  },
+  {
+    title: "some title 17",
+    rating: "some rating",
+    image: "/assets/tv-bland-show.jpeg",
+    alt: "some alt text",
+  },
+  {
+    title: "some title 18",
+    rating: "some rating",
+    image: "/assets/tv-bland-show.jpeg",
     alt: "some alt text",
   },
 ];
 
-const Show = ({ name, description, image, alt }: ShowProps) => {
+const Show = ({ title, image, alt }: ShowProps) => {
   return (
-    <ShowContainer key={name}>
-      <ShowImage alt={alt} src={image} />
-      <ShowDescription>{description}</ShowDescription>
-    </ShowContainer>
+    <div>
+      <Image key={title} alt={alt} src={image} width={200} height={250} />
+      <p>{title}</p>
+    </div>
   );
 };
 
 const ShowList = () => {
   return (
-    <Fragment>
-      <ShowListGrid
-        gridRowGap={[1, 1, 1, 0]}
-        gridTemplateColumns={[
-          "repeat(2, 50% [col-start])",
-          "repeat(2, 50% [col-start])",
-          "repeat(2, 50% [col-start])",
-          "repeat(4, 25% [col-start])",
-          "repeat(4, 25% [col-start])",
-        ]}
-      >
-        {shows.map(Show)}
-      </ShowListGrid>
-    </Fragment>
+    <ShowListGrid
+      gridRowGap={8}
+      gridColumnGap={[0, 4, 8, 8]}
+      gridTemplateColumns={[
+        "repeat(1, 100% [col-start])",
+        "repeat(2, 1fr [col-start])",
+        "repeat(3, 1fr [col-start])",
+        "repeat(4, 1fr [col-start])",
+        "repeat(6, 1fr [col-start])",
+      ]}
+    >
+      {shows.map(Show)}
+    </ShowListGrid>
   );
 };
 
