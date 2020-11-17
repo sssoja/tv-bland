@@ -1,6 +1,6 @@
 import { createGlobalStyle } from "styled-components";
-import theme from "./theme";
-import { fontWeights } from "./theme";
+import theme from "../styles/theme";
+import { fontWeights } from "../styles/theme";
 
 const GlobalStyle = createGlobalStyle`
 @font-face{
