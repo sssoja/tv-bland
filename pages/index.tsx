@@ -1,24 +1,19 @@
 import Head from "next/head";
-import styled from "styled-components";
-import { SpaceProps, space } from "styled-system";
-import ShowList from "../components/ShowList";
-
-const Main = styled.main<SpaceProps>`
-  ${space};
-`;
-
-const P = styled.p``;
+import React from "react";
+import Container from "../components/Container";
+import Intro from "../components/Intro";
+import Layout from "../components/Layout";
 
 const Home = () => {
   return (
-    <Main p={5}>
+    <Layout>
       <Head>
-        <title>Create Next App</title>
-        <link rel="icon" href="/favicon.ico" />
+        <title>Next.js site for NeverBland</title>
       </Head>
-      <P>hello</P>
-      <ShowList />
-    </Main>
+      <Container>
+        <Intro />
+      </Container>
+    </Layout>
   );
 };
 
