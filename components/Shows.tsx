@@ -2,6 +2,7 @@ import React from "react";
 import Image from "next/image";
 import Grid from "./Grid";
 import Link from "next/link";
+import Padding from "./Padding";
 
 interface ShowProps {
   title: string;
@@ -180,19 +181,21 @@ const Show = ({ title, image, alt, width, height }: ShowProps) => {
 
 const Shows = () => {
   return (
-    <Grid
-      gridRowGap={8}
-      gridColumnGap={[0, 4, 8, 8]}
-      gridTemplateColumns={[
-        "repeat(1, 100% [col-start])",
-        "repeat(2, 1fr [col-start])",
-        "repeat(3, 1fr [col-start])",
-        "repeat(4, 1fr [col-start])",
-        "repeat(6, 1fr [col-start])",
-      ]}
-    >
-      {shows.map(Show)}
-    </Grid>
+    <Padding px={6}>
+      <Grid
+        gridRowGap={8}
+        gridColumnGap={[0, 4, 8, 8]}
+        gridTemplateColumns={[
+          "repeat(1, 100% [col-start])",
+          "repeat(2, 1fr [col-start])",
+          "repeat(3, 1fr [col-start])",
+          "repeat(4, 1fr [col-start])",
+          "repeat(6, 1fr [col-start])",
+        ]}
+      >
+        {shows.map(Show)}
+      </Grid>
+    </Padding>
   );
 };
 

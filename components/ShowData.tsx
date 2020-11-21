@@ -14,6 +14,7 @@ import {
 } from "styled-system";
 import Flex from "./Flex";
 import Grid from "./Grid";
+import Padding from "./Padding";
 
 const H4 = styled.h4<TypographyProps>`
   ${typography};
@@ -160,37 +161,40 @@ const castMember = ({ avatar, name, character }: CastProps) => {
 const ShowData = () => {
   return (
     <>
-      <Grid
-        gridTemplateColumns={[
-          "repeat(1, 100% [col-start])",
-          "repeat(1, 100% [col-start])",
-          "repeat(1, 100% [col-start])",
-          "repeat(2, 47% [col-start])",
-          "repeat(2, 47% [col-start])",
-        ]}
-        gridColumnGap={10}
-        gridRowGap={4}
-        my={4}
-      >
-        <Grid gridColumn={1}>
-          <H4 fontSize={3}>Show Info</H4>
-          <Grid
-            gridTemplateColumns={[
-              "repeat(2, 50% [col-start])",
-              "repeat(2, 50% [col-start])",
-              "repeat(2, 50% [col-start])",
-              "repeat(1, 100% [col-start])",
-              "repeat(1, 100% [col-start])",
-            ]}
-          >
-            {showInfo.map(ShowInfoItem)}
+      <Padding px={6}>
+        <Grid
+          gridTemplateColumns={[
+            "repeat(1, 100% [col-start])",
+            "repeat(1, 100% [col-start])",
+            "repeat(1, 100% [col-start])",
+            "repeat(2, 47% [col-start])",
+            "repeat(2, 47% [col-start])",
+          ]}
+          gridColumnGap={10}
+          gridRowGap={4}
+          my={4}
+        >
+          <Grid gridColumn={1}>
+            <H4 fontSize={3}>Show Info</H4>
+            <Grid
+              gridTemplateColumns={[
+                "repeat(2, 50% [col-start])",
+                "repeat(2, 50% [col-start])",
+                "repeat(2, 50% [col-start])",
+                "repeat(1, 100% [col-start])",
+                "repeat(1, 100% [col-start])",
+              ]}
+            >
+              {showInfo.map(ShowInfoItem)}
+            </Grid>
+          </Grid>
+
+          <Grid gridColumn={[1, 1, 1, 2]}>
+            <H4 fontSize={3}>Starring</H4>
+            {cast.map(castMember)}
           </Grid>
         </Grid>
-        <Grid gridColumn={[1, 1, 1, 2]}>
-          <H4 fontSize={3}>Starring</H4>
-          {cast.map(castMember)}
-        </Grid>
-      </Grid>
+      </Padding>
     </>
   );
 };

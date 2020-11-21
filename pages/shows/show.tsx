@@ -16,6 +16,12 @@ import Flex from "../../components/Flex";
 import ShowData from "../../components/ShowData";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
+import Layout from "../../components/Layout";
+import Container from "../../components/Container";
+import { useRouter } from "next/router";
+import ErrorPage from "next/error";
+import Header from "../../components/Header";
+import Padding from "../../components/Padding";
 
 interface ShowProps {
   title: string;
@@ -34,12 +40,13 @@ const show: ShowProps = {
   alt: "some alt text",
 };
 
-const H3 = styled.h3<TypographyProps & SpaceProps>`
+type ParagraphProps = TypographyProps & ColorProps;
+const ShowDescription = styled.p<ParagraphProps>`
   ${typography};
-  ${space};
+  ${color};
 `;
 
-const P = styled.p<TypographyProps & ColorProps>`
+const ShowRating = styled.p<ParagraphProps>`
   ${typography};
   ${color};
 `;
@@ -48,47 +55,64 @@ const ShowImage = styled.img<LayoutProps>`
   ${layout};
 `;
 
-const Show = () => {
-  return (
-    <>
-      <Head>
-        <title>Show</title>
-      </Head>
-      <Link href="/">
-        <a>
-          <h1>TV Bland</h1>
-        </a>
-      </Link>
-      <Flex
-        flexDirection={["column", "column", "column", "row"]}
-        my={[0, 0, 0, 4]}
-      >
-        <Link href="/">
-          <a>
-            <ShowImage src={show.image} maxWidth="100%" />
-          </a>
-        </Link>
-        <Flex flexDirection="column" my={4} p={[0, 0, 0, 4]}>
-          <Flex flexDirection="row">
-            <Flex mr={4}>
-              <FontAwesomeIcon icon={faStar} color="grey" />
-              <FontAwesomeIcon icon={faStar} color="grey" />
-              <FontAwesomeIcon icon={faStar} color="grey" />
-              <FontAwesomeIcon icon={faStar} color="lightGrey" />
-            </Flex>
-            <P fontSize={1}>{show.rating}</P>
-          </Flex>
+const ShowTitle = styled.h3<TypographyProps & SpaceProps>`
+  ${typography};
+  ${space};
+`;
 
-          <H3 fontSize={4} my={4}>
-            {show.title}
-          </H3>
-          <P fontSize={2} color="darkGrey">
-            {show.description}
-          </P>
-        </Flex>
-      </Flex>
-      <ShowData />
-    </>
+const Show = () => {
+  const router = useRouter();
+  if (!router.isFallback && !show?.title) {
+    return <ErrorPage statusCode={404} />;
+  }
+  return (
+    <Layout>
+      <Container>
+        <Header />
+        {router.isFallback ? (
+          <ShowTitle>Loading…</ShowTitle>
+        ) : (
+          <>
+            <article className="mb-32">
+              <Head>
+                <title>{show.title}</title>
+                <meta content={show.image} />
+              </Head>
+              <Padding px={6}>
+                <Flex
+                  flexDirection={["column", "column", "column", "row"]}
+                  my={[0, 0, 0, 4]}
+                >
+                  <Link href="/">
+                    <a>
+                      <ShowImage src={show.image} maxWidth="100%" />
+                    </a>
+                  </Link>
+                  <Flex flexDirection="column" my={4} p={[0, 0, 0, 4]}>
+                    <Flex flexDirection="row">
+                      <Flex mr={4}>
+                        <FontAwesomeIcon icon={faStar} color="grey" />
+                        <FontAwesomeIcon icon={faStar} color="grey" />
+                        <FontAwesomeIcon icon={faStar} color="grey" />
+                        <FontAwesomeIcon icon={faStar} color="lightGrey" />
+                      </Flex>
+                      <ShowRating fontSize={1}>{show.rating}</ShowRating>
+                    </Flex>
+                    <ShowTitle fontSize={4} my={4}>
+                      {show.title}
+                    </ShowTitle>
+                    <ShowDescription fontSize={2} color="darkGrey">
+                      {show.description}
+                    </ShowDescription>
+                  </Flex>
+                </Flex>
+              </Padding>
+              <ShowData />
+            </article>
+          </>
+        )}
+      </Container>
+    </Layout>
   );
 };
 

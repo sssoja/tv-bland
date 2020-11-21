@@ -10,9 +10,7 @@ config.autoAddCss = false; // Tell Font Awesome to skip adding the CSS automatic
 const MyApp = ({ Component, pageProps }) => {
   return (
     <ThemeProvider theme={theme}>
-      <Flex flexDirection="column" p={6} overflow="auto" height="100%">
-        <Component {...pageProps} />
-      </Flex>
+      <Component {...pageProps} />
       <GlobalStyle />
     </ThemeProvider>
   );
