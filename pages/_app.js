@@ -2,7 +2,6 @@ import { ThemeProvider } from "styled-components";
 import theme from "../styles/theme";
 import "../styles/reset.css";
 import GlobalStyle from "./../GlobalStyle";
-import Flex from "../components/Flex";
 import { config } from "@fortawesome/fontawesome-svg-core";
 import "@fortawesome/fontawesome-svg-core/styles.css"; // Import the CSS
 config.autoAddCss = false; // Tell Font Awesome to skip adding the CSS automatically since it's being imported above
@@ -10,9 +9,7 @@ config.autoAddCss = false; // Tell Font Awesome to skip adding the CSS automatic
 const MyApp = ({ Component, pageProps }) => {
   return (
     <ThemeProvider theme={theme}>
-      <Flex flexDirection="column" p={6} overflow="auto" height="100%">
-        <Component {...pageProps} />
-      </Flex>
+      <Component {...pageProps} />
       <GlobalStyle />
     </ThemeProvider>
   );

@@ -15,7 +15,6 @@ const GlobalStyle = createGlobalStyle`
     width: 100%;
   }
   body {
-    min-height: 100%;
     height: 100%;
     font-family: ${theme.fonts.primary};
     text-decoration: none;
@@ -37,6 +36,7 @@ const GlobalStyle = createGlobalStyle`
   a {
     text-decoration: none;
     color: black;
+    font-weight: ${fontWeights.bold};
   }
 `;
 export default GlobalStyle;

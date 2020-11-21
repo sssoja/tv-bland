@@ -1,6 +1,7 @@
 import Head from "next/head";
 import React from "react";
 import Container from "../components/Container";
+import Header from "../components/Header";
 import Intro from "../components/Intro";
 import Layout from "../components/Layout";
 
@@ -11,6 +12,7 @@ const Home = () => {
         <title>TV Bland</title>
       </Head>
       <Container>
+        <Header />
         <Intro />
       </Container>
     </Layout>
