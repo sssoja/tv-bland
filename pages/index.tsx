@@ -8,7 +8,7 @@ const Home = () => {
   return (
     <Layout>
       <Head>
-        <title>Next.js site for NeverBland</title>
+        <title>TV Bland</title>
       </Head>
       <Container>
         <Intro />

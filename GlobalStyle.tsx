@@ -20,7 +20,7 @@ const GlobalStyle = createGlobalStyle`
     font-family: ${theme.fonts.primary};
     text-decoration: none;
     color: ${theme.colors.black};
-    line-height: 1.5em;
+    line-height: 1.2em;
   }
   #root {
     height: 100%;
@@ -33,6 +33,10 @@ const GlobalStyle = createGlobalStyle`
   }
   p {
     font-weight: ${fontWeights.regular};
+  }
+  a {
+    text-decoration: none;
+    color: black;
   }
 `;
 export default GlobalStyle;

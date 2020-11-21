@@ -1,5 +1,5 @@
 import React from "react";
-import ShowList from "./ShowList";
+import Shows from "./Shows";
 
 const Intro = () => {
   return (
@@ -11,7 +11,7 @@ const Intro = () => {
       </p>
       <section>
         <h2>Last Added Shows</h2>
-        <ShowList />
+        <Shows />
       </section>
     </section>
   );
