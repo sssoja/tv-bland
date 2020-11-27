@@ -18,8 +18,6 @@ const fallbackImage = "/assets/avatar.jpeg";
 const Show = ({ show }: ShowType) => {
   const image = show.image ? show.image.medium : fallbackImage;
 
-  console.log(show.name);
-
   return (
     <Div key={show.id}>
       <Link as={`/shows/${show.id}`} href="/shows/[show]">

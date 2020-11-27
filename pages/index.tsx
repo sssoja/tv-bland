@@ -27,7 +27,7 @@ const Home = ({ shows }: ShowsProps) => {
 };
 
 Home.getInitialProps = async () => {
-  const res = await fetch("http://api.tvmaze.com/schedule?country=GB");
+  const res = await fetch("http://api.tvmaze.com/schedule?country=US");
   const json = await res.json();
   return {
     shows: json,

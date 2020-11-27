@@ -109,8 +109,12 @@ const Cast = () => {
   return (
     <Grid
       gridRowGap={1}
-      gridTemplateRows={["repeat(4, 1fr [row-start])"]}
-      gridTemplateColumns={["repeat(1, 70% [col-start])"]}
+      gridTemplateRows={[
+        "repeat(1, 1fr [row-start])",
+        "repeat(1, 1fr [row-start])",
+        "repeat(4, 1fr [row-start])",
+      ]}
+      gridTemplateColumns={["repeat(1, 362px [col-start])"]}
     >
       <Table mb={[4, 4, 4, 0]}>Starring</Table>
       {cast.map(CastMember)}

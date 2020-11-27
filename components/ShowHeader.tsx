@@ -44,16 +44,13 @@ const ShowTitle = styled.h2<ShowHeaderProps>`
 const ShowHeader = (props: ShowProps) => {
   return (
     <Padding px={6} pb={[0, 0, 0, 6]}>
-      <Flex
-        flexDirection={["column", "column", "row", "row", "row"]}
-        maxHeight="50%"
-      >
+      <Flex flexDirection={["column", "column", "column", "row"]}>
         <Link href="/">
           <a>
             <ShowImage src={props.image} maxHeight={[420, 420, 300, 300]} />
           </a>
         </Link>
-        <Flex flexDirection="column" my={4} p={[0, 0, 4, 4]}>
+        <Flex flexDirection="column" my={4} p={[0, 0, 0, 4]}>
           <Flex flexDirection={["column", "row", "row", "row"]}>
             <Flex mr={4}>
               <FontAwesomeIcon icon={faStar} color="grey" />
