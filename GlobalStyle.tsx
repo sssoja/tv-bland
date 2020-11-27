@@ -38,5 +38,9 @@ const GlobalStyle = createGlobalStyle`
     color: black;
     font-weight: ${fontWeights.bold};
   }
+  td {
+    list-style-type: none;
+  }
+
 `;
 export default GlobalStyle;

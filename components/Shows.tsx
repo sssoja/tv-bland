@@ -3,183 +3,50 @@ import Image from "next/image";
 import Grid from "./Grid";
 import Link from "next/link";
 import Padding from "./Padding";
+import { ShowType } from "../pages/shows/[show]";
+import styled from "styled-components";
+import Rating from "./Rating";
 
-interface ShowProps {
-  title: string;
-  rating: string;
-  image: string;
-  alt: string;
-  width: number;
-  height: number;
-}
+const Div = styled.div`
+  transition: transform 0.5s;
+  &:hover {
+    transform: scale(1.05);
+`;
 
-const shows: ShowProps[] = [
-  {
-    title: "some title 1",
-    rating: "some rating",
-    image: "/assets/avatar.jpeg",
-    alt: "some alt text",
-    width: 414,
-    height: 639,
-  },
-  {
-    title: "some other title 2",
-    rating: "some other rating",
-    image: "/assets/tv-bland-show.jpeg",
-    alt: "some cool alt text",
-    width: 414,
-    height: 639,
-  },
-  {
-    title: "some title 3",
-    rating: "some rating",
-    image: "/assets/tv-bland-show.jpeg",
-    alt: "some alt text",
-    width: 414,
-    height: 639,
-  },
-  {
-    title: "some title 4",
-    rating: "some rating",
-    image: "/assets/tv-bland-show.jpeg",
-    alt: "some alt text",
-    width: 414,
-    height: 639,
-  },
-  {
-    title: "some title 5",
-    rating: "some rating",
-    image: "/assets/tv-bland-show.jpeg",
-    alt: "some alt text",
-    width: 414,
-    height: 639,
-  },
-  {
-    title: "some title 6",
-    rating: "some rating",
-    image: "/assets/tv-bland-show.jpeg",
-    alt: "some alt text",
-    width: 414,
-    height: 639,
-  },
-  {
-    title: "some title 7",
-    rating: "some rating",
-    image: "/assets/tv-bland-show.jpeg",
-    alt: "some alt text",
-    width: 414,
-    height: 639,
-  },
-  {
-    title: "some title 8",
-    rating: "some rating",
-    image: "/assets/tv-bland-show.jpeg",
-    alt: "some alt text",
-    width: 414,
-    height: 639,
-  },
-  {
-    title: "some title 9",
-    rating: "some rating",
-    image: "/assets/tv-bland-show.jpeg",
-    alt: "some alt text",
-    width: 414,
-    height: 639,
-  },
-  {
-    title: "some title 10",
-    rating: "some rating",
-    image: "/assets/tv-bland-show.jpeg",
-    alt: "some alt text",
-    width: 414,
-    height: 639,
-  },
-  {
-    title: "some title 11",
-    rating: "some rating",
-    image: "/assets/tv-bland-show.jpeg",
-    alt: "some alt text",
-    width: 414,
-    height: 639,
-  },
-  {
-    title: "some title 12",
-    rating: "some rating",
-    image: "/assets/tv-bland-show.jpeg",
-    alt: "some alt text",
-    width: 414,
-    height: 639,
-  },
-  {
-    title: "some title 13",
-    rating: "some rating",
-    image: "/assets/tv-bland-show.jpeg",
-    alt: "some alt text",
-    width: 414,
-    height: 639,
-  },
-  {
-    title: "some title 14",
-    rating: "some rating",
-    image: "/assets/tv-bland-show.jpeg",
-    alt: "some alt text",
-    width: 414,
-    height: 639,
-  },
-  {
-    title: "some title 15",
-    rating: "some rating",
-    image: "/assets/tv-bland-show.jpeg",
-    alt: "some alt text",
-    width: 414,
-    height: 639,
-  },
-  {
-    title: "some title 16",
-    rating: "some rating",
-    image: "/assets/tv-bland-show.jpeg",
-    alt: "some alt text",
-    width: 414,
-    height: 639,
-  },
-  {
-    title: "some title 17",
-    rating: "some rating",
-    image: "/assets/tv-bland-show.jpeg",
-    alt: "some alt text",
-    width: 414,
-    height: 639,
-  },
-  {
-    title: "some title 18",
-    rating: "some rating",
-    image: "/assets/tv-bland-show.jpeg",
-    alt: "some alt text",
-    width: 414,
-    height: 639,
-  },
-];
+const fallbackImage = "/assets/avatar.jpeg";
 
-const Show = ({ title, image, alt, width, height }: ShowProps) => {
+const Show = ({ show }: ShowType) => {
+  const image = show.image ? show.image.medium : fallbackImage;
+
+  console.log(show.name);
+
   return (
-    <div>
-      <Link href="/shows/show">
+    <Div key={show.id}>
+      <Link as={`/shows/${show.id}`} href="/shows/[show]">
         <a>
           <Image
-            key={title}
-            alt={alt}
+            alt={`Cover Image for ${show.name}`}
             src={image}
-            width={width}
-            height={height}
+            width={414}
+            height={639}
           />
         </a>
       </Link>
-      <p>{title}</p>
-    </div>
+      <Rating rating={show.rating} />
+      <p>{show.name}</p>
+    </Div>
   );
 };
 
-const Shows = () => {
+type ShowsType = ShowType[];
+
+type ShowsProps = {
+  shows: ShowsType;
+};
+
+const Shows = (props: ShowsProps) => {
+  const { shows } = props;
+
   return (
     <Padding px={6}>
       <Grid
@@ -189,8 +56,7 @@ const Shows = () => {
           "repeat(1, 100% [col-start])",
           "repeat(2, 1fr [col-start])",
           "repeat(3, 1fr [col-start])",
-          "repeat(4, 1fr [col-start])",
-          "repeat(6, 1fr [col-start])",
+          "repeat(5, 1fr [col-start])",
         ]}
       >
         {shows.map(Show)}

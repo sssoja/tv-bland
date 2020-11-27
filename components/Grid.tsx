@@ -6,13 +6,16 @@ import {
   LayoutProps,
   space,
   SpaceProps,
+  typography,
+  TypographyProps,
 } from "styled-system";
 
-const Grid = styled.div<GridProps & SpaceProps & LayoutProps>`
+const Grid = styled.div<GridProps & SpaceProps & LayoutProps & TypographyProps>`
   display: grid;
   ${grid};
   ${space};
   ${layout};
+  ${typography}
 `;
 
 export default Grid;

@@ -1,8 +1,15 @@
 import React from "react";
+import { ShowType } from "../pages/shows/[show]";
 import Padding from "./Padding";
 import Shows from "./Shows";
 
-const Intro = () => {
+type ShowsType = ShowType[];
+
+type ShowsProps = {
+  shows: ShowsType;
+};
+
+const Intro = ({ shows }: ShowsProps) => {
   return (
     <section>
       <Padding px={6} pb={4}>
@@ -16,7 +23,7 @@ const Intro = () => {
         <Padding px={6} pb={4}>
           <h4>Last Added Shows</h4>
         </Padding>
-        <Shows />
+        <Shows shows={shows} />
       </section>
     </section>
   );
