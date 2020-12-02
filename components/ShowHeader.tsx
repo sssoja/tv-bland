@@ -67,7 +67,6 @@ const ShowHeader = (props: ShowProps) => {
 
           <ShowDescription
             fontSize={2}
-            color="darkGrey"
             dangerouslySetInnerHTML={{ __html: props.description }}
             overflow="scroll"
           />

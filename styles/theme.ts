@@ -50,18 +50,18 @@ const space = {
 };
 
 const fonts = {
-  primary: "NunitoBold, sans-serif",
+  primary: "Sans-serif",
 };
 
 const borders = {};
 
-export const fontWeights = {
+const fontWeights = {
   light: 300,
   regular: 400,
   bold: 600,
 };
 
-export const zIndexes = {
+const zIndexes = {
   behind: -1,
   inFront: 1,
   overlay: 1300,
@@ -74,6 +74,8 @@ const theme = {
   borders,
   breakpoints,
   colors,
+  fontWeights,
+  zIndexes,
 };
 
 export default theme;
