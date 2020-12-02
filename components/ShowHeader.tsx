@@ -13,16 +13,9 @@ import {
   space,
   SpaceProps,
 } from "styled-system";
-import Flex from "./Flex";
-import Padding from "./Padding";
+import Padding from "./styled/Padding";
 import Rating from "./Rating";
-
-interface ShowProps {
-  name: string;
-  image: string;
-  description: string;
-  rating: { average: number };
-}
+import Flex from "./styled/Flex";
 
 type ShowHeaderProps = TypographyProps & ColorProps & LayoutProps & SpaceProps;
 
@@ -39,6 +32,13 @@ const ShowTitle = styled.h2<ShowHeaderProps>`
   ${typography};
   ${space};
 `;
+
+interface ShowProps {
+  name: string;
+  image: string;
+  description: string;
+  rating: { average: number };
+}
 
 // TO DO replace the 5 placeholder stars on lines 57 - 61 with the result of renderFullStars()
 const ShowHeader = (props: ShowProps) => {

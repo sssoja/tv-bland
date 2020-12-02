@@ -1,8 +1,8 @@
 import React from "react";
 import Image from "next/image";
-import Grid from "./Grid";
+import Grid from "./styled/Grid";
 import Link from "next/link";
-import Padding from "./Padding";
+import Padding from "./styled/Padding";
 import { ShowType } from "../pages/shows/[show]";
 import styled from "styled-components";
 import Rating from "./Rating";
