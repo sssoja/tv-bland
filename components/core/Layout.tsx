@@ -1,4 +1,5 @@
-import React, { Fragment, ReactNode } from "react";
+import { Fragment, ReactNode } from "react";
+
 import Footer from "./Footer";
 import Meta from "./Meta";
 

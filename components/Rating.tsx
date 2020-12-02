@@ -1,9 +1,9 @@
-import React from "react";
+import { SpaceProps, TypographyProps, space, typography } from "styled-system";
+
+import Flex from "./styled/Flex";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
 import styled from "styled-components";
-import { typography, TypographyProps, space, SpaceProps } from "styled-system";
-import Flex from "./styled/Flex";
 
 interface ShowProps {
   rating: { average: number };

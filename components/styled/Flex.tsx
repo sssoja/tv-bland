@@ -1,14 +1,15 @@
-import styled from "styled-components";
 import {
-  flexbox,
   FlexboxProps,
-  layout,
   LayoutProps,
-  position,
   PositionProps,
-  space,
   SpaceProps,
+  flexbox,
+  layout,
+  position,
+  space,
 } from "styled-system";
+
+import styled from "styled-components";
 
 const Flex = styled.div<
   FlexboxProps & SpaceProps & LayoutProps & PositionProps

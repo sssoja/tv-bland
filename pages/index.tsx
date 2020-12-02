@@ -1,9 +1,8 @@
+import Container from "../components/core/Container";
 import Head from "next/head";
-import React from "react";
-import Container from "../components/Container";
-import Header from "../components/Header";
-import Intro from "../components/Intro";
-import Layout from "../components/Layout";
+import Header from "../components/core/Header";
+import Intro from "../components/core/Intro";
+import Layout from "../components/core/Layout";
 import { ShowType } from "./shows/[show]";
 
 type ShowsType = ShowType[];

@@ -1,19 +1,19 @@
-import { faStar } from "@fortawesome/free-solid-svg-icons";
+import {
+  LayoutProps,
+  SpaceProps,
+  TypographyProps,
+  layout,
+  space,
+  typography,
+} from "styled-system";
+
+import Flex from "./styled/Flex";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Link from "next/link";
-import React from "react";
-import styled from "styled-components";
-import {
-  TypographyProps,
-  typography,
-  layout,
-  LayoutProps,
-  space,
-  SpaceProps,
-} from "styled-system";
 import Padding from "./styled/Padding";
 import Rating from "./Rating";
-import Flex from "./styled/Flex";
+import { faStar } from "@fortawesome/free-solid-svg-icons";
+import styled from "styled-components";
 
 type ShowHeaderProps = TypographyProps & LayoutProps & SpaceProps;
 

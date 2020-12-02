@@ -1,19 +1,19 @@
-import React from "react";
-import styled from "styled-components";
 import {
-  layout,
-  space,
-  typography,
+  BorderProps,
+  ColorProps,
   LayoutProps,
   SpaceProps,
   TypographyProps,
   border,
-  BorderProps,
   color,
-  ColorProps,
+  layout,
+  space,
+  typography,
 } from "styled-system";
+
 import Flex from "./styled/Flex";
 import Grid from "./styled/Grid";
+import styled from "styled-components";
 
 type CastProps = BorderProps &
   LayoutProps &
