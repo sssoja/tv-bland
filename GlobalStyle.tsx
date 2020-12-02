@@ -1,12 +1,7 @@
 import { createGlobalStyle } from "styled-components";
 import theme from "./styles/theme";
-import { fontWeights } from "./styles/theme";
 
 const GlobalStyle = createGlobalStyle`
-@font-face{
-  font-family: NunitoBold;
-  src: url(/Nunito-ExtraBold.ttf)
-}
   html {
     min-height: 100%;
   }
@@ -16,31 +11,24 @@ const GlobalStyle = createGlobalStyle`
   }
   body {
     height: 100%;
-    font-family: ${theme.fonts.primary};
     text-decoration: none;
     color: ${theme.colors.black};
     line-height: 1.2em;
+    font-family: ${theme.fonts.primary};
   }
   #root {
     height: 100%;
   }
   h1 {
-    font-weight: ${fontWeights.bold};
-  }
-  h2 {
-    font-weight: ${fontWeights.regular};
-  }
-  p {
-    font-weight: ${fontWeights.regular};
+    font-weight: ${theme.fontWeights.bold}
   }
   a {
     text-decoration: none;
     color: black;
-    font-weight: ${fontWeights.bold};
   }
   td {
     list-style-type: none;
   }
-
+  
 `;
 export default GlobalStyle;
