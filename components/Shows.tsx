@@ -1,11 +1,10 @@
-import React from "react";
-import Image from "next/image";
 import Grid from "./styled/Grid";
+import Image from "next/image";
 import Link from "next/link";
 import Padding from "./styled/Padding";
+import Rating from "./Rating";
 import { ShowType } from "../pages/shows/[show]";
 import styled from "styled-components";
-import Rating from "./Rating";
 
 const Div = styled.div`
   transition: transform 0.5s;

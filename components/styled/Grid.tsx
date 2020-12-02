@@ -1,14 +1,15 @@
-import styled from "styled-components";
 import {
-  grid,
   GridProps,
-  layout,
   LayoutProps,
-  space,
   SpaceProps,
-  typography,
   TypographyProps,
+  grid,
+  layout,
+  space,
+  typography,
 } from "styled-system";
+
+import styled from "styled-components";
 
 const Grid = styled.div<GridProps & SpaceProps & LayoutProps & TypographyProps>`
   display: grid;

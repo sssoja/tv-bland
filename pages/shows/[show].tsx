@@ -1,12 +1,11 @@
-import React from "react";
-import Head from "next/head";
-import ShowBody from "../../components/ShowBody";
-import Layout from "../../components/Layout";
-import Container from "../../components/Container";
-import { useRouter } from "next/router";
+import Container from "../../components/core/Container";
 import ErrorPage from "next/error";
-import Header from "../../components/Header";
+import Head from "next/head";
+import Header from "../../components/core/Header";
+import Layout from "../../components/core/Layout";
+import ShowBody from "../../components/ShowBody";
 import ShowHeader from "../../components/ShowHeader";
+import { useRouter } from "next/router";
 
 export type ShowType = {
   url: string;

@@ -1,7 +1,6 @@
-import React from "react";
-import { ShowType } from "../pages/shows/[show]";
-import Padding from "./styled/Padding";
-import Shows from "./Shows";
+import Padding from "../styled/Padding";
+import { ShowType } from "../../pages/shows/[show]";
+import Shows from "../Shows";
 
 type ShowsType = ShowType[];
 

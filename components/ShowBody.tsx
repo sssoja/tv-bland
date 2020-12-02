@@ -1,20 +1,20 @@
-import React from "react";
-import styled from "styled-components";
 import {
   ColorProps,
-  color,
-  LayoutProps,
-  space,
-  SpaceProps,
-  grid,
-  GridProps,
-  layout,
-  flexbox,
   FlexboxProps,
+  GridProps,
+  LayoutProps,
+  SpaceProps,
+  color,
+  flexbox,
+  grid,
+  layout,
+  space,
 } from "styled-system";
+
 import Cast from "./Cast";
 import Grid from "./styled/Grid";
 import Padding from "./styled/Padding";
+import styled from "styled-components";
 
 type ShowHeaderProps = ColorProps &
   LayoutProps &
