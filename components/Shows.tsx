@@ -19,20 +19,20 @@ const Show = ({ show }: ShowType) => {
   const image = show.image ? show.image.medium : fallbackImage;
 
   return (
-    <Div key={show.id}>
-      <Link as={`/shows/${show.id}`} href="/shows/[show]">
-        <a>
+    <Link as={`/shows/${show.id}`} href="/shows/[show]">
+      <a>
+        <Div key={show.id}>
           <Image
             alt={`Cover Image for ${show.name}`}
             src={image}
             width={414}
             height={639}
           />
-        </a>
-      </Link>
-      <Rating rating={show.rating} />
-      <p>{show.name}</p>
-    </Div>
+          <Rating rating={show.rating} />
+          <p>{show.name}</p>
+        </Div>
+      </a>
+    </Link>
   );
 };
 
