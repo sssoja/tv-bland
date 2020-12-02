@@ -22,19 +22,20 @@ type ShowHeaderProps = ColorProps &
   GridProps &
   FlexboxProps;
 
-const Table = styled.table<ShowHeaderProps>`
+const ShowInfoContainer = styled.div<ShowHeaderProps>`
   ${space};
 `;
-const TableHeader = styled.th<ShowHeaderProps>`
+
+const ShowInfo = styled.li<ShowHeaderProps>`
   text-align: left;
 `;
 
-const TableData = styled.td<ShowHeaderProps>`
+const ShowInfoData = styled.p<ShowHeaderProps>`
   ${color};
   ${grid};
 `;
 
-const TableCell = styled.div<ShowHeaderProps>`
+const GridCell = styled.div<ShowHeaderProps>`
   ${layout};
   ${flexbox}
 `;
@@ -44,6 +45,7 @@ interface ShowProps {
   status: string;
   genres: string[];
   network: string;
+  url: string;
 }
 
 const ShowBody = (props: ShowProps) => {
@@ -63,41 +65,43 @@ const ShowBody = (props: ShowProps) => {
         gridColumnGap={4}
       >
         <Grid>
-          <Table my={[0, 4, 4, 0]}>
+          <ShowInfoContainer my={[0, 4, 4, 0]}>
             Show Info
-            <Grid
-              gridTemplateColumns={["repeat(1, 50% [col-start])", "30% 50%"]}
-              gridTemplateRows={[
-                "repeat(1, 1fr [row-start])",
-                "repeat(2, 50% [row-start])",
-                "repeat(2, 50% [row-start])",
-                "repeat(4, 1fr [row-start])",
-              ]}
-              fontSize={2}
-              gridRowGap={[4, 4, 2, 2]}
-              gridColumnGap={4}
-              my={4}
-            >
-              <TableCell display={layouts} flexDirection="column">
-                <TableHeader>Streamed On</TableHeader>
-                <TableData color="grey">{props.network}</TableData>
-              </TableCell>
-              <TableCell display={layouts} flexDirection="column">
-                <TableHeader>Schedule</TableHeader>
-                <TableData color="grey" gridColumn={2}>
-                  {schedule}
-                </TableData>
-              </TableCell>
-              <TableCell display={layouts} flexDirection="column">
-                <TableHeader>Status</TableHeader>
-                <TableData color="grey">{props.status}</TableData>
-              </TableCell>
-              <TableCell display={layouts} flexDirection="column">
-                <TableHeader>Genres</TableHeader>
-                <TableData color="grey">{genres}</TableData>
-              </TableCell>
-            </Grid>
-          </Table>
+            <ul>
+              <Grid
+                gridTemplateColumns={["repeat(1, 50% [col-start])", "30% 50%"]}
+                gridTemplateRows={[
+                  "repeat(1, 1fr [row-start])",
+                  "repeat(2, 50% [row-start])",
+                  "repeat(2, 50% [row-start])",
+                  "repeat(4, 1fr [row-start])",
+                ]}
+                fontSize={2}
+                gridRowGap={[4, 4, 2, 2]}
+                gridColumnGap={4}
+                my={4}
+              >
+                <GridCell display={layouts} flexDirection="column">
+                  <ShowInfo>Streamed On</ShowInfo>
+                  <ShowInfoData color="grey">{props.network}</ShowInfoData>
+                </GridCell>
+                <GridCell display={layouts} flexDirection="column">
+                  <ShowInfo>Schedule</ShowInfo>
+                  <ShowInfoData color="grey" gridColumn={2}>
+                    {schedule}
+                  </ShowInfoData>
+                </GridCell>
+                <GridCell display={layouts} flexDirection="column">
+                  <ShowInfo>Status</ShowInfo>
+                  <ShowInfoData color="grey">{props.status}</ShowInfoData>
+                </GridCell>
+                <GridCell display={layouts} flexDirection="column">
+                  <ShowInfo>Genres</ShowInfo>
+                  <ShowInfoData color="grey">{genres}</ShowInfoData>
+                </GridCell>
+              </Grid>
+            </ul>
+          </ShowInfoContainer>
         </Grid>
 
         <Grid gridColumn={[1, 1, 1, 2]} gridRow={[2, 2, 2, 1]} mb={8}>

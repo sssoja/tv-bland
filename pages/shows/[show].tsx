@@ -9,10 +9,11 @@ import Header from "../../components/Header";
 import ShowHeader from "../../components/ShowHeader";
 
 export type ShowType = {
+  url: string;
   show: {
     name: string;
     image: { medium: string } | null;
-    description: string;
+    summary: string;
     rating: { average: number };
     id: number;
     genres: string[];
@@ -25,8 +26,8 @@ export type ShowType = {
 const fallbackImage = "/assets/avatar.jpeg";
 const fallbackNetwork = "Not available";
 
-const Show = ({ show }: ShowType) => {
-  const { name, description, rating, genres, status, schedule } = show;
+const Show = ({ show, url }: ShowType) => {
+  const { name, summary, rating, genres, status, schedule } = show;
   const showImage = show.image ? show.image.medium : fallbackImage;
   const showNetwork = show.network ? show.network.name : fallbackNetwork;
 
@@ -50,7 +51,7 @@ const Show = ({ show }: ShowType) => {
               <ShowHeader
                 name={name}
                 image={showImage}
-                description={description}
+                summary={summary}
                 rating={rating}
               />
               <ShowBody
@@ -58,6 +59,7 @@ const Show = ({ show }: ShowType) => {
                 network={showNetwork}
                 schedule={schedule}
                 status={status}
+                url={url}
               />
             </article>
           </>
@@ -76,12 +78,13 @@ Show.getInitialProps = async (ctx: any) => {
     show: {
       name: json.name,
       image: json.image,
-      description: json.summary,
+      summary: json.summary,
       rating: json.rating,
       genres: json.genres,
       network: json.network,
       schedule: json.schedule,
       status: json.status,
+      url: json.url,
     },
   };
 };
