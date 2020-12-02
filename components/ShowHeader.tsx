@@ -6,8 +6,6 @@ import styled from "styled-components";
 import {
   TypographyProps,
   typography,
-  ColorProps,
-  color,
   layout,
   LayoutProps,
   space,
@@ -17,11 +15,10 @@ import Padding from "./styled/Padding";
 import Rating from "./Rating";
 import Flex from "./styled/Flex";
 
-type ShowHeaderProps = TypographyProps & ColorProps & LayoutProps & SpaceProps;
+type ShowHeaderProps = TypographyProps & LayoutProps & SpaceProps;
 
-const ShowDescription = styled.p<ShowHeaderProps>`
+const ShowSummary = styled.div<ShowHeaderProps>`
   ${typography};
-  ${color};
 `;
 
 const ShowImage = styled.img<ShowHeaderProps>`
@@ -40,7 +37,7 @@ const ShowLink = styled.a<ShowHeaderProps>`
 interface ShowProps {
   name: string;
   image: string;
-  description: string;
+  summary: string;
   rating: { average: number };
 }
 
@@ -68,10 +65,9 @@ const ShowHeader = (props: ShowProps) => {
           <ShowTitle fontSize={4} my={4}>
             {props.name}
           </ShowTitle>
-
-          <ShowDescription
+          <ShowSummary
             fontSize={2}
-            dangerouslySetInnerHTML={{ __html: props.description }}
+            dangerouslySetInnerHTML={{ __html: props.summary }}
             overflow="scroll"
           />
         </Flex>

@@ -26,7 +26,7 @@ const GlobalStyle = createGlobalStyle`
     text-decoration: none;
     color: black;
   }
-  td {
+  li {
     list-style-type: none;
   }
   

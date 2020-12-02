@@ -15,13 +15,13 @@ const Div = styled.div`
 
 const fallbackImage = "/assets/avatar.jpeg";
 
-const Show = ({ show }: ShowType) => {
+const Show = ({ show, url }: ShowType) => {
   const image = show.image ? show.image.medium : fallbackImage;
 
   return (
-    <Link as={`/shows/${show.id}`} href="/shows/[show]">
+    <Link as={`/shows/${show.id}`} href="/shows/[show]" key={url}>
       <a>
-        <Div key={show.id}>
+        <Div>
           <Image
             alt={`Cover Image for ${show.name}`}
             src={image}

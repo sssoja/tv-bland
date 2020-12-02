@@ -12,8 +12,8 @@ import {
   color,
   ColorProps,
 } from "styled-system";
-import Grid from "./styled/Grid";
 import Flex from "./styled/Flex";
+import Grid from "./styled/Grid";
 
 type CastProps = BorderProps &
   LayoutProps &
@@ -41,7 +41,7 @@ const Div = styled.div<CastProps>`
   ${layout};
 `;
 
-const Table = styled.table<CastProps>`
+const CastContainer = styled.div<CastProps>`
   ${space};
 `;
 
@@ -113,7 +113,7 @@ const Cast = () => {
       ]}
       gridTemplateColumns={["repeat(1, 362px [col-start])"]}
     >
-      <Table mb={[4, 4, 4, 0]}>Starring</Table>
+      <CastContainer mb={[4, 4, 4, 0]}>Starring</CastContainer>
       {cast.map(CastMember)}
     </Grid>
   );
