@@ -6,22 +6,19 @@ import {
   LayoutProps,
   space,
   SpaceProps,
-  BorderProps,
   grid,
   GridProps,
   layout,
-  border,
   flexbox,
   FlexboxProps,
 } from "styled-system";
 import Cast from "./Cast";
-import Grid from "./Grid";
-import Padding from "./Padding";
+import Grid from "./styled/Grid";
+import Padding from "./styled/Padding";
 
 type ShowHeaderProps = ColorProps &
   LayoutProps &
   SpaceProps &
-  BorderProps &
   GridProps &
   FlexboxProps;
 
@@ -40,13 +37,6 @@ const TableData = styled.td<ShowHeaderProps>`
 const TableCell = styled.div<ShowHeaderProps>`
   ${layout};
   ${flexbox}
-`;
-
-const Div = styled.div<BorderProps & ColorProps & LayoutProps & SpaceProps>`
-  ${border};
-  ${color};
-  ${layout};
-  ${space};
 `;
 
 interface ShowProps {

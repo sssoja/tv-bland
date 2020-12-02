@@ -12,9 +12,38 @@ import {
   color,
   ColorProps,
 } from "styled-system";
+import Grid from "./styled/Grid";
+import Flex from "./styled/Flex";
 
-import Flex from "./Flex";
-import Grid from "./Grid";
+type CastProps = BorderProps &
+  LayoutProps &
+  SpaceProps &
+  TypographyProps &
+  ColorProps;
+
+const P = styled.p<CastProps>`
+  ${typography};
+  ${color};
+  ${space};
+`;
+
+const List = styled.ul<CastProps>`
+  ${typography};
+`;
+
+const Avatar = styled.img<CastProps>`
+  ${border};
+  ${layout};
+`;
+
+const Div = styled.div<CastProps>`
+  ${border};
+  ${layout};
+`;
+
+const Table = styled.table<CastProps>`
+  ${space};
+`;
 
 interface CastMemberProps {
   avatar: string;
@@ -44,38 +73,6 @@ const cast: CastMemberProps[] = [
     character: "some character",
   },
 ];
-
-type CastProps = BorderProps &
-  ColorProps &
-  LayoutProps &
-  SpaceProps &
-  TypographyProps;
-
-const P = styled.p<CastProps>`
-  ${typography};
-  ${color};
-  ${space};
-`;
-
-const List = styled.ul<CastProps>`
-  ${typography};
-`;
-
-const Avatar = styled.img<CastProps>`
-  ${border};
-  ${layout};
-`;
-
-const Div = styled.div<CastProps>`
-  ${border};
-  ${color};
-  ${layout};
-  ${space};
-`;
-
-const Table = styled.table<CastProps>`
-  ${space};
-`;
 
 const CastMember = ({ name, avatar, character }: CastMemberProps) => {
   return (

@@ -42,7 +42,7 @@ const Show = ({ show }: ShowType) => {
           <title>Loading…</title>
         ) : (
           <>
-            <article className="mb-32">
+            <article>
               <Head>
                 <title>{name}</title>
                 <meta content={showImage} />
