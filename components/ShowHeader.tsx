@@ -33,6 +33,10 @@ const ShowTitle = styled.h2<ShowHeaderProps>`
   ${space};
 `;
 
+const ShowLink = styled.a<ShowHeaderProps>`
+  width: fit-content;
+`;
+
 interface ShowProps {
   name: string;
   image: string;
@@ -46,9 +50,9 @@ const ShowHeader = (props: ShowProps) => {
     <Padding px={6} pb={[0, 0, 0, 6]}>
       <Flex flexDirection={["column", "column", "column", "row"]}>
         <Link href="/">
-          <a>
+          <ShowLink>
             <ShowImage src={props.image} maxHeight={[420, 420, 300, 300]} />
-          </a>
+          </ShowLink>
         </Link>
         <Flex flexDirection="column" my={4} p={[0, 0, 0, 4]}>
           <Flex flexDirection={["column", "row", "row", "row"]}>
