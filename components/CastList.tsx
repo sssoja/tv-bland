@@ -98,10 +98,11 @@ type CastListProps = { castList: CastMemberType[] };
 
 const CastList = (props: CastListProps) => {
   const { castList } = props;
+
   return (
     <div>
       Starring
-      <ul>{castList.map(CastMember)}</ul>
+      <ul>{castList.slice(0, 4).map(CastMember)}</ul>
     </div>
   );
 };
