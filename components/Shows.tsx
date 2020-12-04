@@ -17,7 +17,6 @@ const fallbackImage = "/assets/avatar.jpeg";
 type ShowProps = EpisodeType;
 
 const Show = (props: ShowProps) => {
-  console.log(props.show);
   const { show } = props;
   const image = show.image ? show.image.medium : fallbackImage;
 
