@@ -1,14 +1,14 @@
 import Container from "../components/core/Container";
+import { EpisodeType } from "./shows/[show]";
 import Head from "next/head";
 import Header from "../components/core/Header";
 import Intro from "../components/core/Intro";
 import Layout from "../components/core/Layout";
-import { ShowType } from "./shows/[show]";
 
-type ShowsType = ShowType[];
+type EpisodesType = EpisodeType[];
 
 type ShowsProps = {
-  shows: ShowsType;
+  shows: EpisodesType;
 };
 
 const Home = ({ shows }: ShowsProps) => {
@@ -28,6 +28,7 @@ const Home = ({ shows }: ShowsProps) => {
 Home.getInitialProps = async () => {
   const res = await fetch("http://api.tvmaze.com/schedule?country=US");
   const json = await res.json();
+  console.log(json);
   return {
     shows: json,
   };

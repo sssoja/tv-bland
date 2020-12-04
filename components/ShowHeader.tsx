@@ -15,34 +15,34 @@ import Rating from "./Rating";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
 import styled from "styled-components";
 
-type ShowHeaderProps = TypographyProps & LayoutProps & SpaceProps;
+type HeaderProps = TypographyProps & LayoutProps & SpaceProps;
 
-const ShowSummary = styled.div<ShowHeaderProps>`
+const ShowSummary = styled.div<HeaderProps>`
   ${typography};
 `;
 
-const ShowImage = styled.img<ShowHeaderProps>`
+const ShowImage = styled.img<HeaderProps>`
   ${layout};
 `;
 
-const ShowTitle = styled.h2<ShowHeaderProps>`
+const ShowTitle = styled.h2<HeaderProps>`
   ${typography};
   ${space};
 `;
 
-const ShowLink = styled.a<ShowHeaderProps>`
+const ShowLink = styled.a<HeaderProps>`
   width: fit-content;
 `;
 
-interface ShowProps {
-  name: string;
+interface ShowHeaderProps {
+  showName: string;
   image: string;
   summary: string;
   rating: { average: number };
 }
 
 // TO DO replace the 5 placeholder stars on lines 57 - 61 with the result of renderFullStars()
-const ShowHeader = (props: ShowProps) => {
+const ShowHeader = (props: ShowHeaderProps) => {
   return (
     <Padding px={6} pb={[0, 0, 0, 6]}>
       <Flex flexDirection={["column", "column", "column", "row"]}>
@@ -63,7 +63,7 @@ const ShowHeader = (props: ShowProps) => {
             <Rating rating={props.rating} />
           </Flex>
           <ShowTitle fontSize={4} my={4}>
-            {props.name}
+            {props.showName}
           </ShowTitle>
           <ShowSummary
             fontSize={2}

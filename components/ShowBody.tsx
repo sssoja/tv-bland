@@ -1,3 +1,4 @@
+import CastList, { CastMemberType } from "./CastList";
 import {
   ColorProps,
   FlexboxProps,
@@ -10,8 +11,8 @@ import {
   layout,
   space,
 } from "styled-system";
+import { EpisodeType, ShowType } from "../pages/shows/[show]";
 
-import Cast from "./Cast";
 import Grid from "./styled/Grid";
 import Padding from "./styled/Padding";
 import styled from "styled-components";
@@ -40,15 +41,17 @@ const GridCell = styled.div<ShowHeaderProps>`
   ${flexbox}
 `;
 
-interface ShowProps {
-  schedule: { days: string[] };
-  status: string;
-  genres: string[];
-  network: string;
-  url: string;
-}
+type ShowBodyProps = Pick<
+  ShowType,
+  "schedule" | "status" | "genres" | "network" | "url"
+> & {
+  castList: CastMemberType[];
+};
 
-const ShowBody = (props: ShowProps) => {
+const fallbackNetwork = "Not available";
+
+const ShowBody = (props: ShowBodyProps) => {
+  const network = props.network ? props.network.name : fallbackNetwork;
   const schedule = props.schedule.days.join(", ");
   const genres = props.genres.join(", ");
   const layouts = ["flex", "flex", "flex", "contents"];
@@ -83,7 +86,7 @@ const ShowBody = (props: ShowProps) => {
               >
                 <GridCell display={layouts} flexDirection="column">
                   <ShowInfo>Streamed On</ShowInfo>
-                  <ShowInfoData color="grey">{props.network}</ShowInfoData>
+                  <ShowInfoData color="grey">{network}</ShowInfoData>
                 </GridCell>
                 <GridCell display={layouts} flexDirection="column">
                   <ShowInfo>Schedule</ShowInfo>
@@ -105,7 +108,7 @@ const ShowBody = (props: ShowProps) => {
         </Grid>
 
         <Grid gridColumn={[1, 1, 1, 2]} gridRow={[2, 2, 2, 1]} mb={8}>
-          <Cast />
+          <CastList castList={props.castList} />
         </Grid>
       </Grid>
     </Padding>

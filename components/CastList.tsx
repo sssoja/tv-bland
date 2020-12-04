@@ -27,7 +27,7 @@ const P = styled.p<CastProps>`
   ${space};
 `;
 
-const List = styled.ul<CastProps>`
+const ListItem = styled.li<CastProps>`
   ${typography};
 `;
 
@@ -45,52 +45,26 @@ const CastContainer = styled.div<CastProps>`
   ${space};
 `;
 
-interface CastMemberProps {
-  avatar: string;
-  name: string;
-  character: string;
-}
+type CastMemberProps = CastMemberType;
 
-const cast: CastMemberProps[] = [
-  {
-    avatar: "/assets/avatar.jpeg",
-    name: "Nigella Lawson",
-    character: "some character",
-  },
-  {
-    avatar: "/assets/avatar.jpeg",
-    name: "Gordon Ramsey",
-    character: "some character",
-  },
-  {
-    avatar: "/assets/avatar.jpeg",
-    name: "Jamie Oliver",
-    character: "some character",
-  },
-  {
-    avatar: "/assets/avatar.jpeg",
-    name: "Paul Hollywood",
-    character: "some character",
-  },
-];
+export type CastMemberType = {
+  castName: string;
+  image: { medium: string } | null;
+  character: { name: string } | null;
+};
 
-const CastMember = ({ name, avatar, character }: CastMemberProps) => {
+const fallbackName = "not available";
+
+const CastMember = (props: CastMemberProps) => {
+  const characterName = props.character ? props.character.name : fallbackName;
+
   return (
-    <List key={name} fontSize={2}>
+    <ListItem key={props.castName} fontSize={2}>
       <Flex alignItems="center">
-        <Avatar
-          src={avatar}
-          width={35}
-          height={35}
-          borderRadius="50%"
-          alt={name}
-        ></Avatar>
-        <Flex flexDirection={["column", "column", "column", "row"]} mx={8}>
-          <P mr={8}>{name}</P>
-          <P ml={[0, 0, 0, 8]} color="grey">
-            {character}
-          </P>
-        </Flex>
+        {/* <Avatar>{props.image}</Avatar> */}
+
+        <P>{props.castName}</P>
+        <P>{characterName}</P>
       </Flex>
       <Div
         borderBottom="solid"
@@ -98,11 +72,14 @@ const CastMember = ({ name, avatar, character }: CastMemberProps) => {
         borderColor="grey"
         display={["none", "none", "none", "block"]}
       ></Div>
-    </List>
+    </ListItem>
   );
 };
 
-const Cast = () => {
+type CastListProps = { castList: CastMemberType[] };
+
+const CastList = (props: CastListProps) => {
+  const { castList } = props;
   return (
     <Grid
       gridRowGap={1}
@@ -114,9 +91,9 @@ const Cast = () => {
       gridTemplateColumns={["repeat(1, 362px [col-start])"]}
     >
       <CastContainer mb={[4, 4, 4, 0]}>Starring</CastContainer>
-      {cast.map(CastMember)}
+      <ul>{castList.map(CastMember)}</ul>
     </Grid>
   );
 };
 
-export default Cast;
+export default CastList;
