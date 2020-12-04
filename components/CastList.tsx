@@ -31,9 +31,16 @@ const CastListItem = styled.li<CastProps>`
   ${typography};
 `;
 
-const Avatar = styled.img<CastProps>`
-  ${border};
+const CircularPortrait = styled.div<CastProps>`
+  position: relative;
+  overflow: hidden;
+  border-radius: 50%;
   ${layout};
+`;
+
+const Avatar = styled.img<CastProps>`
+  width: 100%;
+  height: auto;
 `;
 
 const Div = styled.div<CastProps>`
@@ -70,7 +77,9 @@ const CastMember = (props: CastMemberProps) => {
     >
       <CastListItem key={props.url} fontSize={2}>
         <Flex alignItems="center">
-          <Avatar src={castImage}></Avatar>
+          <CircularPortrait width={50} height={50}>
+            <Avatar src={castImage}></Avatar>
+          </CircularPortrait>
           <P>{castMember}</P>
           <P>{characterName}</P>
         </Flex>
