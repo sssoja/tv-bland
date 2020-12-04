@@ -14,6 +14,7 @@ import {
 import Cast from "./Cast";
 import Grid from "./styled/Grid";
 import Padding from "./styled/Padding";
+import { ShowType } from "../pages/shows/[show]";
 import styled from "styled-components";
 
 type ShowHeaderProps = ColorProps &
@@ -40,15 +41,15 @@ const GridCell = styled.div<ShowHeaderProps>`
   ${flexbox}
 `;
 
-interface ShowProps {
-  schedule: { days: string[] };
-  status: string;
-  genres: string[];
-  network: string;
-  url: string;
-}
+type ShowBodyProps = Pick<
+  ShowType,
+  "schedule" | "status" | "genres" | "network" | "url"
+>;
 
-const ShowBody = (props: ShowProps) => {
+const fallbackNetwork = "Not available";
+
+const ShowBody = (props: ShowBodyProps) => {
+  const network = props.network ? props.network.name : fallbackNetwork;
   const schedule = props.schedule.days.join(", ");
   const genres = props.genres.join(", ");
   const layouts = ["flex", "flex", "flex", "contents"];
@@ -83,7 +84,7 @@ const ShowBody = (props: ShowProps) => {
               >
                 <GridCell display={layouts} flexDirection="column">
                   <ShowInfo>Streamed On</ShowInfo>
-                  <ShowInfoData color="grey">{props.network}</ShowInfoData>
+                  <ShowInfoData color="grey">{network}</ShowInfoData>
                 </GridCell>
                 <GridCell display={layouts} flexDirection="column">
                   <ShowInfo>Schedule</ShowInfo>

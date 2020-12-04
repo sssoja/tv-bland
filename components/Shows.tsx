@@ -1,9 +1,9 @@
+import { EpisodeType } from "../pages/shows/[show]";
 import Grid from "./styled/Grid";
 import Image from "next/image";
 import Link from "next/link";
 import Padding from "./styled/Padding";
 import Rating from "./Rating";
-import { ShowType } from "../pages/shows/[show]";
 import styled from "styled-components";
 
 const Div = styled.div`
@@ -14,11 +14,14 @@ const Div = styled.div`
 
 const fallbackImage = "/assets/avatar.jpeg";
 
-const Show = ({ show, url }: ShowType) => {
+type ShowProps = EpisodeType;
+
+const Show = (props: ShowProps) => {
+  const { show } = props;
   const image = show.image ? show.image.medium : fallbackImage;
 
   return (
-    <Link as={`/shows/${show.id}`} href="/shows/[show]" key={url}>
+    <Link as={`/shows/${show.id}`} href="/shows/[show]" key={show.url}>
       <a>
         <Div>
           <Image
@@ -35,10 +38,10 @@ const Show = ({ show, url }: ShowType) => {
   );
 };
 
-type ShowsType = ShowType[];
+type EpisodesType = EpisodeType[];
 
 type ShowsProps = {
-  shows: ShowsType;
+  shows: EpisodesType;
 };
 
 const Shows = (props: ShowsProps) => {

@@ -7,28 +7,43 @@ import ShowBody from "../../components/ShowBody";
 import ShowHeader from "../../components/ShowHeader";
 import { useRouter } from "next/router";
 
+export type ShowPageProps = {
+  show: ShowType;
+};
+
+export type EpisodeType = {
+  show: ShowType;
+};
+
 export type ShowType = {
+  name: string;
+  image: { medium: string } | null;
+  summary: string;
+  rating: { average: number };
+  id: number;
+  genres: string[];
+  network: { name: string } | null;
+  status: string;
+  schedule: { days: string[] };
   url: string;
-  show: {
-    name: string;
-    image: { medium: string } | null;
-    summary: string;
-    rating: { average: number };
-    id: number;
-    genres: string[];
-    network: { name: string } | null;
-    status: string;
-    schedule: { days: string[] };
-  };
 };
 
 const fallbackImage = "/assets/avatar.jpeg";
-const fallbackNetwork = "Not available";
 
-const Show = ({ show, url }: ShowType) => {
-  const { name, summary, rating, genres, status, schedule } = show;
-  const showImage = show.image ? show.image.medium : fallbackImage;
-  const showNetwork = show.network ? show.network.name : fallbackNetwork;
+const Show = (props: ShowPageProps) => {
+  const {
+    name,
+    summary,
+    rating,
+    genres,
+    status,
+    schedule,
+    url,
+    image,
+    network,
+  } = props.show;
+
+  const showImage = image ? image.medium : fallbackImage;
 
   const router = useRouter();
   if (!router.isFallback && !name) {
@@ -55,7 +70,7 @@ const Show = ({ show, url }: ShowType) => {
               />
               <ShowBody
                 genres={genres}
-                network={showNetwork}
+                network={network}
                 schedule={schedule}
                 status={status}
                 url={url}
@@ -69,7 +84,9 @@ const Show = ({ show, url }: ShowType) => {
 };
 
 Show.getInitialProps = async (ctx: any) => {
-  const res = await fetch(`http://api.tvmaze.com/shows/${ctx.query.show}`);
+  const res = await fetch(
+    `http://api.tvmaze.com/shows/${ctx.query.show}?embed=cast`
+  );
 
   const json = await res.json();
 
