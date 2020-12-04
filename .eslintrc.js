@@ -25,9 +25,15 @@ module.exports = {
     "linebreak-style": ["error", "unix"],
     quotes: ["error", "double"],
     semi: ["error", "always"],
-  },
-  rules: {
     "react/react-in-jsx-scope": "off",
+    "sort-imports": [
+      2,
+      {
+        ignoreCase: false,
+        ignoreMemberSort: false,
+        memberSyntaxSortOrder: ["none", "all", "multiple", "single"],
+      },
+    ],
   },
   globals: {
     React: "writable",
