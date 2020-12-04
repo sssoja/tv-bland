@@ -1,11 +1,11 @@
+import { EpisodeType } from "../../pages/shows/[show]";
 import Padding from "../styled/Padding";
-import { ShowType } from "../../pages/shows/[show]";
 import Shows from "../Shows";
 
-type ShowsType = ShowType[];
+type EpisodesType = EpisodeType[];
 
 type ShowsProps = {
-  shows: ShowsType;
+  shows: EpisodesType;
 };
 
 const Intro = ({ shows }: ShowsProps) => {
