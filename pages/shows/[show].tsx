@@ -65,7 +65,7 @@ const Show = (props: ShowPageProps) => {
                 <meta content={showImage} />
               </Head>
               <ShowHeader
-                showName={name}
+                name={name}
                 image={showImage}
                 summary={summary}
                 rating={rating}
@@ -97,7 +97,7 @@ Show.getInitialProps = async (ctx: any) => {
 
   return {
     show: {
-      showName: json.name,
+      name: json.name,
       image: json.image,
       summary: json.summary,
       rating: json.rating,

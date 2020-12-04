@@ -35,7 +35,7 @@ const ShowLink = styled.a<HeaderProps>`
 `;
 
 interface ShowHeaderProps {
-  showName: string;
+  name: string;
   image: string;
   summary: string;
   rating: { average: number };
@@ -63,7 +63,7 @@ const ShowHeader = (props: ShowHeaderProps) => {
             <Rating rating={props.rating} />
           </Flex>
           <ShowTitle fontSize={4} my={4}>
-            {props.showName}
+            {props.name}
           </ShowTitle>
           <ShowSummary
             fontSize={2}

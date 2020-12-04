@@ -11,10 +11,10 @@ import {
   layout,
   space,
 } from "styled-system";
-import { EpisodeType, ShowType } from "../pages/shows/[show]";
 
 import Grid from "./styled/Grid";
 import Padding from "./styled/Padding";
+import { ShowType } from "../pages/shows/[show]";
 import styled from "styled-components";
 
 type ShowHeaderProps = ColorProps &

@@ -12,7 +12,6 @@ import {
 } from "styled-system";
 
 import Flex from "./styled/Flex";
-import Grid from "./styled/Grid";
 import styled from "styled-components";
 
 type CastProps = BorderProps &
@@ -27,7 +26,7 @@ const P = styled.p<CastProps>`
   ${space};
 `;
 
-const ListItem = styled.li<CastProps>`
+const CastListItem = styled.li<CastProps>`
   ${typography};
 `;
 
@@ -41,29 +40,31 @@ const Div = styled.div<CastProps>`
   ${layout};
 `;
 
-const CastContainer = styled.div<CastProps>`
-  ${space};
-`;
-
 type CastMemberProps = CastMemberType;
 
 export type CastMemberType = {
-  castName: string;
-  image: { medium: string } | null;
+  person: { name: string; image: { medium: string } };
   character: { name: string } | null;
+  url: string;
 };
 
 const fallbackName = "not available";
+const fallbackImage = "/assets/avatar.jpeg";
 
 const CastMember = (props: CastMemberProps) => {
   const characterName = props.character ? props.character.name : fallbackName;
+  const castMember = props.person ? props.person.name : fallbackName;
+  const castImage = props.person.image
+    ? props.person.image.medium
+    : fallbackImage;
+
+  console.log(props);
 
   return (
-    <ListItem key={props.castName} fontSize={2}>
+    <CastListItem key={props.url} fontSize={2}>
       <Flex alignItems="center">
-        {/* <Avatar>{props.image}</Avatar> */}
-
-        <P>{props.castName}</P>
+        <Avatar src={castImage}></Avatar>
+        <P>{castMember}</P>
         <P>{characterName}</P>
       </Flex>
       <Div
@@ -72,7 +73,7 @@ const CastMember = (props: CastMemberProps) => {
         borderColor="grey"
         display={["none", "none", "none", "block"]}
       ></Div>
-    </ListItem>
+    </CastListItem>
   );
 };
 
@@ -81,18 +82,10 @@ type CastListProps = { castList: CastMemberType[] };
 const CastList = (props: CastListProps) => {
   const { castList } = props;
   return (
-    <Grid
-      gridRowGap={1}
-      gridTemplateRows={[
-        "repeat(1, 1fr [row-start])",
-        "repeat(1, 1fr [row-start])",
-        "repeat(4, 1fr [row-start])",
-      ]}
-      gridTemplateColumns={["repeat(1, 362px [col-start])"]}
-    >
-      <CastContainer mb={[4, 4, 4, 0]}>Starring</CastContainer>
+    <Flex flexDirection="column">
+      Starring
       <ul>{castList.map(CastMember)}</ul>
-    </Grid>
+    </Flex>
   );
 };
 
