@@ -1,11 +1,15 @@
 import {
   BorderProps,
   ColorProps,
+  FlexboxProps,
+  GridProps,
   LayoutProps,
   SpaceProps,
   TypographyProps,
   border,
   color,
+  flexbox,
+  grid,
   layout,
   space,
   typography,
@@ -19,16 +23,13 @@ type CastProps = BorderProps &
   LayoutProps &
   SpaceProps &
   TypographyProps &
-  ColorProps;
-
-const P = styled.p<CastProps>`
-  ${typography};
-  ${color};
-  ${space};
-`;
+  ColorProps &
+  GridProps &
+  FlexboxProps;
 
 const CastListItem = styled.li<CastProps>`
-  ${typography};
+  ${layout};
+  ${flexbox};
 `;
 
 const CircularPortrait = styled.div<CastProps>`
@@ -41,6 +42,15 @@ const CircularPortrait = styled.div<CastProps>`
 const Avatar = styled.img<CastProps>`
   width: 100%;
   height: auto;
+`;
+
+const P = styled.p<CastProps>`
+  ${typography};
+  ${color};
+  ${space};
+  ${grid};
+  display: flex;
+  align-self: center;
 `;
 
 const Div = styled.div<CastProps>`
@@ -66,23 +76,28 @@ const CastMember = (props: CastMemberProps) => {
     : fallbackImage;
 
   return (
-    <Grid
-      gridRowGap={1}
-      gridTemplateRows={[
-        "repeat(1, 1fr [row-start])",
-        "repeat(1, 1fr [row-start])",
-        "(4, 1fr)",
-      ]}
-      gridTemplateColumns={["repeat(1, 362px [col-start])"]}
-    >
-      <CastListItem key={props.url} fontSize={2}>
-        <Flex alignItems="center">
+    <Flex alignItems="center">
+      <CastListItem>
+        <Grid
+          gridTemplateColumns={[
+            "75px 125px 100px",
+            "75px 125px 100px",
+            "75px 125px 100px",
+            "100px 150px 100px",
+          ]}
+          my={1}
+          key={props.url}
+        >
           <CircularPortrait width={50} height={50}>
             <Avatar src={castImage}></Avatar>
           </CircularPortrait>
-          <P>{castMember}</P>
-          <P>{characterName}</P>
-        </Flex>
+          <P gridColumn={2} fontSize={2}>
+            {castMember}
+          </P>
+          <P gridColumn={3} fontSize={2}>
+            {characterName}
+          </P>
+        </Grid>
         <Div
           borderBottom="solid"
           borderWidth="thin"
@@ -90,7 +105,7 @@ const CastMember = (props: CastMemberProps) => {
           display={["none", "none", "none", "block"]}
         ></Div>
       </CastListItem>
-    </Grid>
+    </Flex>
   );
 };
 
@@ -101,7 +116,7 @@ const CastList = (props: CastListProps) => {
 
   return (
     <div>
-      Starring
+      <h3>Starring</h3>
       <ul>{castList.slice(0, 4).map(CastMember)}</ul>
     </div>
   );
