@@ -1,3 +1,4 @@
+import { CastMemberType } from "../../components/CastList";
 import Container from "../../components/core/Container";
 import ErrorPage from "next/error";
 import Head from "next/head";
@@ -9,6 +10,7 @@ import { useRouter } from "next/router";
 
 export type ShowPageProps = {
   show: ShowType;
+  castList: CastMemberType[];
 };
 
 export type EpisodeType = {
@@ -74,6 +76,7 @@ const Show = (props: ShowPageProps) => {
                 schedule={schedule}
                 status={status}
                 url={url}
+                castList={props.castList}
               />
             </article>
           </>
@@ -90,6 +93,8 @@ Show.getInitialProps = async (ctx: any) => {
 
   const json = await res.json();
 
+  const cast = json._embedded ? json._embedded.cast : [];
+
   return {
     show: {
       name: json.name,
@@ -102,6 +107,7 @@ Show.getInitialProps = async (ctx: any) => {
       status: json.status,
       url: json.url,
     },
+    castList: cast,
   };
 };
 

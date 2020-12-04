@@ -1,3 +1,4 @@
+import CastList, { CastMemberType } from "./CastList";
 import {
   ColorProps,
   FlexboxProps,
@@ -11,7 +12,6 @@ import {
   space,
 } from "styled-system";
 
-import Cast from "./Cast";
 import Grid from "./styled/Grid";
 import Padding from "./styled/Padding";
 import { ShowType } from "../pages/shows/[show]";
@@ -44,7 +44,9 @@ const GridCell = styled.div<ShowHeaderProps>`
 type ShowBodyProps = Pick<
   ShowType,
   "schedule" | "status" | "genres" | "network" | "url"
->;
+> & {
+  castList: CastMemberType[];
+};
 
 const fallbackNetwork = "Not available";
 
@@ -106,7 +108,7 @@ const ShowBody = (props: ShowBodyProps) => {
         </Grid>
 
         <Grid gridColumn={[1, 1, 1, 2]} gridRow={[2, 2, 2, 1]} mb={8}>
-          <Cast />
+          <CastList castList={props.castList} />
         </Grid>
       </Grid>
     </Padding>
