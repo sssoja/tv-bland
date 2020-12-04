@@ -69,7 +69,7 @@ const ShowBody = (props: ShowBodyProps) => {
       >
         <Grid>
           <ShowInfoContainer my={[0, 4, 4, 0]}>
-            Show Info
+            <h3>Show Info</h3>
             <ul>
               <Grid
                 gridTemplateColumns={["repeat(1, 50% [col-start])", "30% 50%"]}
