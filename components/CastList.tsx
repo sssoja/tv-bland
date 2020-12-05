@@ -61,9 +61,8 @@ const Div = styled.div<CastProps>`
 type CastMemberProps = CastMemberType;
 
 export type CastMemberType = {
-  person: { name: string; image: { medium: string } };
+  person: { name: string; image: { medium: string }; id: number };
   character: { name: string } | null;
-  url: string;
 };
 const fallbackName = "not available";
 const fallbackImage = "/assets/avatar.jpeg";
@@ -76,7 +75,7 @@ const CastMember = (props: CastMemberProps) => {
     : fallbackImage;
 
   return (
-    <Flex alignItems="center">
+    <Flex alignItems="center" key={props.person.id}>
       <CastListItem>
         <Grid
           gridTemplateColumns={[
@@ -86,7 +85,6 @@ const CastMember = (props: CastMemberProps) => {
             "100px 150px 100px",
           ]}
           my={1}
-          key={props.url}
         >
           <CircularPortrait width={50} height={50}>
             <Avatar src={castImage}></Avatar>
