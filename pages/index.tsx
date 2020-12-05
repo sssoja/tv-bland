@@ -8,7 +8,7 @@ import Layout from "../components/core/Layout";
 type EpisodesType = EpisodeType[];
 
 type ShowsProps = {
-  shows: EpisodesType;
+  shows: EpisodesType | null;
 };
 
 const Home = ({ shows }: ShowsProps) => {
@@ -19,19 +19,25 @@ const Home = ({ shows }: ShowsProps) => {
       </Head>
       <Container>
         <Header />
-        <Intro shows={shows} />
+        {shows ? <Intro shows={shows} /> : "sorry!"}
       </Container>
     </Layout>
   );
 };
 
 Home.getInitialProps = async () => {
-  const res = await fetch("http://api.tvmaze.com/schedule?country=US");
-  const json = await res.json();
-  console.log(json);
-  return {
-    shows: json,
-  };
+  try {
+    throw new Error();
+
+    const res = await fetch("http://api.tvmaze.com/schedule?country=US");
+    const json = await res.json();
+
+    return {
+      shows: json,
+    };
+  } catch (error) {
+    return { shows: null };
+  }
 };
 
 export default Home;
