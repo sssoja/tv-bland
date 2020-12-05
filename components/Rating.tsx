@@ -6,7 +6,7 @@ import { faStar } from "@fortawesome/free-solid-svg-icons";
 import styled from "styled-components";
 
 interface ShowProps {
-  rating: { average: number };
+  rating: { average: number | null };
 }
 
 const NumberRating = styled.p<TypographyProps & SpaceProps>`
@@ -15,31 +15,34 @@ const NumberRating = styled.p<TypographyProps & SpaceProps>`
 `;
 
 const Rating = (props: ShowProps) => {
+  if (props.rating.average === null) {
+    return <NumberRating fontSize={1}>No rating</NumberRating>;
+  }
   const rating = Math.round(props.rating.average / 2);
   const maxRating = 5;
   const emptyStars = maxRating - rating;
 
   const renderFullStars = () => {
     return rating !== 0
-      ? Array(rating).map(index => {
-          return (
-            <FontAwesomeIcon key={`fs${index}`} icon={faStar} color="grey" />
-          );
-        })
+      ? Array(rating)
+          .fill(null)
+          .map((star, i) => {
+            return (
+              <FontAwesomeIcon key={`fs${i}`} icon={faStar} color="grey" />
+            );
+          })
       : "";
   };
 
   const renderEmptyStars = () => {
     return emptyStars !== 0
-      ? Array(emptyStars).map(index => {
-          return (
-            <FontAwesomeIcon
-              key={`es${index}`}
-              icon={faStar}
-              color="lightGrey"
-            />
-          );
-        })
+      ? Array(emptyStars)
+          .fill(null)
+          .map((star, i) => {
+            return (
+              <FontAwesomeIcon key={`es${i}`} icon={faStar} color="lightGrey" />
+            );
+          })
       : "";
   };
 
