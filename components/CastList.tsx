@@ -17,6 +17,7 @@ const CircularPortrait = styled.div<LayoutProps>`
   position: relative;
   overflow: hidden;
   border-radius: 50%;
+  align-self: center;
   ${layout};
 `;
 
@@ -58,10 +59,10 @@ const CastMember = (props: CastMemberProps) => {
       <li>
         <Grid
           gridTemplateColumns={[
-            "75px 125px 100px",
-            "75px 125px 100px",
-            "75px 125px 100px",
-            "100px 150px 100px",
+            "65px 120px 120px",
+            "65px 95px 130px",
+            "65px 95px 120px",
+            "75px 150px 180px",
           ]}
           my={1}
         >

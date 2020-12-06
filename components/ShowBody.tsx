@@ -13,13 +13,13 @@ type ShowBodyProps = {
 
 const ShowBody = (props: ShowBodyProps) => {
   return (
-    <Padding px={6}>
+    <Padding px={[3, 3, 3, 6]}>
       <Grid
         gridTemplateColumns={[
           "repeat(1, 100% [col-start])",
           "repeat(1, 100% [col-start])",
           "repeat(1, 100% [col-start])",
-          "repeat(2, 50% [col-start])",
+          "repeat(2, 40% [col-start])",
         ]}
         gridColumnGap={4}
       >
