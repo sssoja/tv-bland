@@ -19,6 +19,7 @@ type ShowProps = EpisodeType;
 const Show = (props: ShowProps) => {
   const { show } = props;
   const image = show.image ? show.image.medium : fallbackImage;
+  const responsiveDisplays = ["none", "none", "none", "flex"];
 
   return (
     <Link as={`/shows/${show.id}`} href="/shows/[show]" key={show.url}>
@@ -30,7 +31,7 @@ const Show = (props: ShowProps) => {
             width={414}
             height={639}
           />
-          <Rating rating={show.rating} />
+          <Rating rating={show.rating} display={responsiveDisplays} />
           <p>{show.name}</p>
         </Div>
       </a>
