@@ -8,11 +8,9 @@ import {
 } from "styled-system";
 
 import Flex from "./styles/Flex";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Link from "next/link";
 import Padding from "./styles/Padding";
 import Rating from "./Rating";
-import { faStar } from "@fortawesome/free-solid-svg-icons";
 import styled from "styled-components";
 
 type StyledComponentProps = TypographyProps & LayoutProps & SpaceProps;

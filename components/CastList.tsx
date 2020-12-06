@@ -1,17 +1,11 @@
 import {
   BorderProps,
-  ColorProps,
-  FlexboxProps,
   GridProps,
   LayoutProps,
-  SpaceProps,
   TypographyProps,
   border,
-  color,
-  flexbox,
   grid,
   layout,
-  space,
   typography,
 } from "styled-system";
 
@@ -21,16 +15,8 @@ import styled from "styled-components";
 
 type StyledComponentProps = BorderProps &
   LayoutProps &
-  SpaceProps &
   TypographyProps &
-  ColorProps &
-  GridProps &
-  FlexboxProps;
-
-const CastListItem = styled.li<StyledComponentProps>`
-  ${layout};
-  ${flexbox};
-`;
+  GridProps;
 
 const CircularPortrait = styled.div<StyledComponentProps>`
   position: relative;
@@ -46,8 +32,6 @@ const Avatar = styled.img<StyledComponentProps>`
 
 const P = styled.p<StyledComponentProps>`
   ${typography};
-  ${color};
-  ${space};
   ${grid};
   display: flex;
   align-self: center;
@@ -76,7 +60,7 @@ const CastMember = (props: CastMemberProps) => {
 
   return (
     <Flex alignItems="center" key={props.person.id}>
-      <CastListItem>
+      <li>
         <Grid
           gridTemplateColumns={[
             "75px 125px 100px",
@@ -102,7 +86,7 @@ const CastMember = (props: CastMemberProps) => {
           borderColor="grey"
           display={["none", "none", "none", "block"]}
         ></Div>
-      </CastListItem>
+      </li>
     </Flex>
   );
 };
