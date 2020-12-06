@@ -16,26 +16,26 @@ import React from "react";
 import { ShowType } from "../pages/shows/[show]";
 import styled from "styled-components";
 
-type BodyProps = ColorProps &
+type StyledComponentProps = ColorProps &
   LayoutProps &
   SpaceProps &
   GridProps &
   FlexboxProps;
 
-const ShowInfoContainer = styled.div<BodyProps>`
+const ShowInfoContainer = styled.div<StyledComponentProps>`
   ${space};
 `;
 
-const ShowInfoListItem = styled.li<BodyProps>`
+const ShowInfoListItem = styled.li<StyledComponentProps>`
   text-align: left;
 `;
 
-const ShowInfoData = styled.p<BodyProps>`
+const ShowInfoData = styled.p<StyledComponentProps>`
   ${color};
   ${grid};
 `;
 
-const GridCell = styled.div<BodyProps>`
+const GridCell = styled.div<StyledComponentProps>`
   ${layout};
   ${flexbox}
 `;

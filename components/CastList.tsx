@@ -19,7 +19,7 @@ import Flex from "./styles/Flex";
 import Grid from "./styles/Grid";
 import styled from "styled-components";
 
-type CastProps = BorderProps &
+type StyledComponentProps = BorderProps &
   LayoutProps &
   SpaceProps &
   TypographyProps &
@@ -27,24 +27,24 @@ type CastProps = BorderProps &
   GridProps &
   FlexboxProps;
 
-const CastListItem = styled.li<CastProps>`
+const CastListItem = styled.li<StyledComponentProps>`
   ${layout};
   ${flexbox};
 `;
 
-const CircularPortrait = styled.div<CastProps>`
+const CircularPortrait = styled.div<StyledComponentProps>`
   position: relative;
   overflow: hidden;
   border-radius: 50%;
   ${layout};
 `;
 
-const Avatar = styled.img<CastProps>`
+const Avatar = styled.img<StyledComponentProps>`
   width: 100%;
   height: auto;
 `;
 
-const P = styled.p<CastProps>`
+const P = styled.p<StyledComponentProps>`
   ${typography};
   ${color};
   ${space};
@@ -53,7 +53,7 @@ const P = styled.p<CastProps>`
   align-self: center;
 `;
 
-const Div = styled.div<CastProps>`
+const Div = styled.div<StyledComponentProps>`
   ${border};
   ${layout};
 `;
