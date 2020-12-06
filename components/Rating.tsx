@@ -46,7 +46,6 @@ const Rating = (props: RatingProps) => {
   const roundedAverage = Math.round(average / 2);
   const emptyStars = maxRating - roundedAverage;
 
-  // TO DO all ratings equal to zero display as an integer not 0.0
   const rating = average === 0 ? roundedAverage : average.toFixed(1);
 
   const renderFullStars = () => {
