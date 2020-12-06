@@ -1,9 +1,11 @@
 import {
   BorderProps,
+  ColorProps,
   GridProps,
   LayoutProps,
   TypographyProps,
   border,
+  color,
   grid,
   layout,
   typography,
@@ -26,9 +28,10 @@ const Avatar = styled.img`
   height: auto;
 `;
 
-const P = styled.p<TypographyProps & GridProps>`
+const P = styled.p<TypographyProps & GridProps & ColorProps>`
   ${typography};
   ${grid};
+  ${color};
   display: flex;
   align-self: center;
 `;
@@ -72,7 +75,7 @@ const CastMember = (props: CastMemberProps) => {
           <P gridColumn={2} fontSize={2}>
             {castMember}
           </P>
-          <P gridColumn={3} fontSize={2}>
+          <P gridColumn={3} fontSize={2} color="grey">
             {characterName}
           </P>
         </Grid>
