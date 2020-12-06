@@ -13,31 +13,26 @@ import Flex from "./styles/Flex";
 import Grid from "./styles/Grid";
 import styled from "styled-components";
 
-type StyledComponentProps = BorderProps &
-  LayoutProps &
-  TypographyProps &
-  GridProps;
-
-const CircularPortrait = styled.div<StyledComponentProps>`
+const CircularPortrait = styled.div<LayoutProps>`
   position: relative;
   overflow: hidden;
   border-radius: 50%;
   ${layout};
 `;
 
-const Avatar = styled.img<StyledComponentProps>`
+const Avatar = styled.img`
   width: 100%;
   height: auto;
 `;
 
-const P = styled.p<StyledComponentProps>`
+const P = styled.p<TypographyProps & GridProps>`
   ${typography};
   ${grid};
   display: flex;
   align-self: center;
 `;
 
-const Div = styled.div<StyledComponentProps>`
+const Div = styled.div<BorderProps & LayoutProps>`
   ${border};
   ${layout};
 `;

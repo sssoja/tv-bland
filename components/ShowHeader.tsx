@@ -13,22 +13,20 @@ import Padding from "./styles/Padding";
 import Rating from "./Rating";
 import styled from "styled-components";
 
-type StyledComponentProps = TypographyProps & LayoutProps & SpaceProps;
-
-const ShowSummary = styled.div<StyledComponentProps>`
+const ShowSummary = styled.div<TypographyProps>`
   ${typography};
 `;
 
-const ShowImage = styled.img<StyledComponentProps>`
+const ShowImage = styled.img<LayoutProps>`
   ${layout};
 `;
 
-const ShowTitle = styled.h2<StyledComponentProps>`
+const ShowTitle = styled.h2<TypographyProps & SpaceProps>`
   ${typography};
   ${space};
 `;
 
-const ShowLink = styled.a<StyledComponentProps>`
+const ShowLink = styled.a`
   width: fit-content;
 `;
 
@@ -58,7 +56,6 @@ const ShowHeader = (props: ShowHeaderProps) => {
           <ShowSummary
             fontSize={2}
             dangerouslySetInnerHTML={{ __html: props.summary }}
-            overflow="scroll"
           />
         </Flex>
       </Flex>
