@@ -20,10 +20,13 @@ interface RatingProps {
   showNumbers?: boolean;
 }
 
-const NoRating = styled.p<TypographyProps & ColorProps & SpaceProps>`
+const NoRating = styled.p<
+  TypographyProps & ColorProps & SpaceProps & LayoutProps
+>`
   ${typography};
   ${color};
   ${space};
+  ${layout};
 `;
 
 const RatingContainer = styled.div<LayoutProps & SpaceProps>`
@@ -45,7 +48,7 @@ const Span = styled.span<SpaceProps & TypographyProps>`
 const Rating = (props: RatingProps) => {
   if (props.rating.average === null) {
     return (
-      <NoRating fontSize={1} color="grey" my={1}>
+      <NoRating fontSize={1} color="grey" my={1} display={props.display}>
         No rating
       </NoRating>
     );
