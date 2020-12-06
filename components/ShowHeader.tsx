@@ -9,7 +9,6 @@ import {
 
 import Flex from "./styles/Flex";
 import Link from "next/link";
-import Padding from "./styles/Padding";
 import Rating from "./Rating";
 import styled from "styled-components";
 
