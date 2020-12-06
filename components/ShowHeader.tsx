@@ -39,7 +39,7 @@ interface ShowHeaderProps {
 
 const ShowHeader = (props: ShowHeaderProps) => {
   return (
-    <Padding px={[3, 3, 3, 6]} pb={[0, 0, 0, 6]}>
+    <Padding px={[3, 6, 6, 6]} pb={[0, 0, 0, 6]}>
       <Flex flexDirection={["column", "column", "column", "row"]}>
         <Link href="/">
           <ShowLink>
