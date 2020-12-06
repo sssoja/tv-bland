@@ -2,10 +2,12 @@ import {
   BorderProps,
   GridProps,
   LayoutProps,
+  SpaceProps,
   TypographyProps,
   border,
   grid,
   layout,
+  space,
   typography,
 } from "styled-system";
 
@@ -26,9 +28,10 @@ const Avatar = styled.img`
   height: auto;
 `;
 
-const P = styled.p<TypographyProps & GridProps>`
+const P = styled.p<TypographyProps & GridProps & SpaceProps>`
   ${typography};
   ${grid};
+  ${space};
   display: flex;
   align-self: center;
 `;
@@ -60,8 +63,8 @@ const CastMember = (props: CastMemberProps) => {
         <Grid
           gridTemplateColumns={[
             "65px 120px 120px",
-            "65px 95px 130px",
-            "65px 95px 120px",
+            "65px 120px 120px",
+            "65px 120px 120px",
             "75px 150px 180px",
           ]}
           my={1}
@@ -69,10 +72,10 @@ const CastMember = (props: CastMemberProps) => {
           <CircularPortrait width={50} height={50}>
             <Avatar src={castImage}></Avatar>
           </CircularPortrait>
-          <P gridColumn={2} fontSize={2}>
+          <P gridColumn={2} fontSize={2} mr={2}>
             {castMember}
           </P>
-          <P gridColumn={3} fontSize={2}>
+          <P gridColumn={3} fontSize={2} ml={2}>
             {characterName}
           </P>
         </Grid>
