@@ -1,41 +1,27 @@
 import {
   ColorProps,
   FlexboxProps,
-  GridProps,
   LayoutProps,
-  SpaceProps,
   color,
   flexbox,
-  grid,
   layout,
-  space,
 } from "styled-system";
 
 import Grid from "./styles/Grid";
+import Padding from "./styles/Padding";
 import React from "react";
 import { ShowType } from "../pages/shows/[show]";
 import styled from "styled-components";
 
-type StyledComponentProps = ColorProps &
-  LayoutProps &
-  SpaceProps &
-  GridProps &
-  FlexboxProps;
-
-const ShowInfoContainer = styled.div<StyledComponentProps>`
-  ${space};
-`;
-
-const ShowInfoListItem = styled.li<StyledComponentProps>`
+const ShowInfoListItem = styled.li`
   text-align: left;
 `;
 
-const ShowInfoData = styled.p<StyledComponentProps>`
+const ShowInfoData = styled.p<ColorProps>`
   ${color};
-  ${grid};
 `;
 
-const GridCell = styled.div<StyledComponentProps>`
+const GridCell = styled.div<FlexboxProps & LayoutProps>`
   ${layout};
   ${flexbox}
 `;
@@ -54,7 +40,7 @@ const ShowInfo = (props: ShowInfoProps) => {
   const layouts = ["flex", "flex", "flex", "contents"];
 
   return (
-    <ShowInfoContainer my={[0, 4, 4, 0]}>
+    <Padding my={[0, 4, 4, 0]}>
       <h3>Show Info</h3>
       <ul>
         <Grid
@@ -76,9 +62,7 @@ const ShowInfo = (props: ShowInfoProps) => {
           </GridCell>
           <GridCell display={layouts} flexDirection="column">
             <ShowInfoListItem>Schedule</ShowInfoListItem>
-            <ShowInfoData color="grey" gridColumn={2}>
-              {schedule}
-            </ShowInfoData>
+            <ShowInfoData color="grey">{schedule}</ShowInfoData>
           </GridCell>
           <GridCell display={layouts} flexDirection="column">
             <ShowInfoListItem>Status</ShowInfoListItem>
@@ -90,7 +74,7 @@ const ShowInfo = (props: ShowInfoProps) => {
           </GridCell>
         </Grid>
       </ul>
-    </ShowInfoContainer>
+    </Padding>
   );
 };
 

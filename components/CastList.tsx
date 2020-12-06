@@ -1,17 +1,11 @@
 import {
   BorderProps,
-  ColorProps,
-  FlexboxProps,
   GridProps,
   LayoutProps,
-  SpaceProps,
   TypographyProps,
   border,
-  color,
-  flexbox,
   grid,
   layout,
-  space,
   typography,
 } from "styled-system";
 
@@ -19,41 +13,26 @@ import Flex from "./styles/Flex";
 import Grid from "./styles/Grid";
 import styled from "styled-components";
 
-type StyledComponentProps = BorderProps &
-  LayoutProps &
-  SpaceProps &
-  TypographyProps &
-  ColorProps &
-  GridProps &
-  FlexboxProps;
-
-const CastListItem = styled.li<StyledComponentProps>`
-  ${layout};
-  ${flexbox};
-`;
-
-const CircularPortrait = styled.div<StyledComponentProps>`
+const CircularPortrait = styled.div<LayoutProps>`
   position: relative;
   overflow: hidden;
   border-radius: 50%;
   ${layout};
 `;
 
-const Avatar = styled.img<StyledComponentProps>`
+const Avatar = styled.img`
   width: 100%;
   height: auto;
 `;
 
-const P = styled.p<StyledComponentProps>`
+const P = styled.p<TypographyProps & GridProps>`
   ${typography};
-  ${color};
-  ${space};
   ${grid};
   display: flex;
   align-self: center;
 `;
 
-const Div = styled.div<StyledComponentProps>`
+const Div = styled.div<BorderProps & LayoutProps>`
   ${border};
   ${layout};
 `;
@@ -76,7 +55,7 @@ const CastMember = (props: CastMemberProps) => {
 
   return (
     <Flex alignItems="center" key={props.person.id}>
-      <CastListItem>
+      <li>
         <Grid
           gridTemplateColumns={[
             "75px 125px 100px",
@@ -102,7 +81,7 @@ const CastMember = (props: CastMemberProps) => {
           borderColor="grey"
           display={["none", "none", "none", "block"]}
         ></Div>
-      </CastListItem>
+      </li>
     </Flex>
   );
 };
