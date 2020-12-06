@@ -15,22 +15,22 @@ import Rating from "./Rating";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
 import styled from "styled-components";
 
-type HeaderProps = TypographyProps & LayoutProps & SpaceProps;
+type StyledComponentProps = TypographyProps & LayoutProps & SpaceProps;
 
-const ShowSummary = styled.div<HeaderProps>`
+const ShowSummary = styled.div<StyledComponentProps>`
   ${typography};
 `;
 
-const ShowImage = styled.img<HeaderProps>`
+const ShowImage = styled.img<StyledComponentProps>`
   ${layout};
 `;
 
-const ShowTitle = styled.h2<HeaderProps>`
+const ShowTitle = styled.h2<StyledComponentProps>`
   ${typography};
   ${space};
 `;
 
-const ShowLink = styled.a<HeaderProps>`
+const ShowLink = styled.a<StyledComponentProps>`
   width: fit-content;
 `;
 
