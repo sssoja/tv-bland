@@ -3,7 +3,7 @@ import Padding from "../styles/Padding";
 
 const Header = () => {
   return (
-    <Padding p={6}>
+    <Padding p={[3, 3, 3, 6]}>
       <h2>
         <Link href="/">
           <a>
