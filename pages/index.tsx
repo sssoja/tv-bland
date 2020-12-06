@@ -27,13 +27,20 @@ const Home = ({ shows }: ShowsProps) => {
 
 Home.getInitialProps = async () => {
   try {
-    throw new Error();
-
     const res = await fetch("http://api.tvmaze.com/schedule?country=US");
     const json = await res.json();
 
+    // de-duplicating episodes thanks to:
+    // https://dev.to/matthewoates/comment/8hdm
+    const seen = new Set();
+    const filteredEpisodes = json.filter((episode: EpisodeType) => {
+      const duplicate = seen.has(episode.show.id);
+      seen.add(episode.show.id);
+      return !duplicate;
+    });
+
     return {
-      shows: json,
+      shows: filteredEpisodes,
     };
   } catch (error) {
     return { shows: null };
