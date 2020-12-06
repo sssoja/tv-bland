@@ -1,9 +1,11 @@
 import { CastMemberType } from "../../components/CastList";
 import Container from "../../components/core/Container";
+import ErrorMessage from "../../components/ErrorMessage";
 import ErrorPage from "next/error";
 import Head from "next/head";
 import Header from "../../components/core/Header";
 import Layout from "../../components/core/Layout";
+import React from "react";
 import ShowBody from "../../components/ShowBody";
 import ShowHeader from "../../components/ShowHeader";
 import { useRouter } from "next/router";
@@ -34,7 +36,7 @@ const fallbackImage = "/assets/avatar.jpeg";
 
 const Show = (props: ShowPageProps) => {
   if (!props.show || !props.castList) {
-    return "Sorry, there was an error getting the data here";
+    return <ErrorMessage />;
   }
   const { name, summary, rating, image } = props.show;
 
@@ -74,6 +76,7 @@ const Show = (props: ShowPageProps) => {
 
 Show.getInitialProps = async (ctx: any) => {
   try {
+    throw new Error();
     const res = await fetch(
       `http://api.tvmaze.com/shows/${ctx.query.show}?embed=cast`
     );
