@@ -1,33 +1,56 @@
-import { TypographyProps, typography } from "styled-system";
+import {
+  FlexboxProps,
+  LayoutProps,
+  SpaceProps,
+  TypographyProps,
+  flexbox,
+  layout,
+  space,
+  typography,
+} from "styled-system";
 
-import Flex from "./styles/Flex";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import React from "react";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
 import styled from "styled-components";
 
-interface ShowProps {
+interface RatingProps {
   rating: { average: number | null };
+  display?: string[];
+  showNumbers?: boolean;
 }
 
 const NoRating = styled.p<TypographyProps>`
   ${typography};
 `;
 
-const NumberRating = styled.p<TypographyProps>`
-  ${typography};
+const RatingContainer = styled.div<LayoutProps & SpaceProps & FlexboxProps>`
+  display: flex;
+  ${layout};
+  ${space};
+  ${flexbox};
 `;
 
-const Rating = (props: ShowProps) => {
+const NumberRating = styled.p<TypographyProps & SpaceProps>`
+  ${typography};
+  ${space};
+`;
+
+const Rating = (props: RatingProps) => {
   if (props.rating.average === null) {
     return <NoRating fontSize={1}>No rating</NoRating>;
   }
-  const rating = Math.round(props.rating.average / 2);
+
+  const average = props.rating.average / 2;
   const maxRating = 5;
-  const emptyStars = maxRating - rating;
+  const roundedAverage = Math.round(average / 2);
+  const emptyStars = maxRating - roundedAverage;
+
+  const rating = average === 0 ? roundedAverage : average.toFixed(1);
 
   const renderFullStars = () => {
-    return rating !== 0
-      ? Array(rating)
+    return roundedAverage !== 0
+      ? Array(roundedAverage)
           .fill(null)
           .map((star, i) => {
             return (
@@ -50,11 +73,15 @@ const Rating = (props: ShowProps) => {
   };
 
   return (
-    <Flex mr={4} flexDirection="row">
+    <RatingContainer display={props.display}>
       <span>{renderFullStars()}</span>
       <span>{renderEmptyStars()}</span>
-      <NumberRating fontSize={1}>{rating} / 5</NumberRating>
-    </Flex>
+      {props.showNumbers && (
+        <NumberRating fontSize={1} mx={2}>
+          {rating} / 5
+        </NumberRating>
+      )}
+    </RatingContainer>
   );
 };
 

@@ -48,7 +48,7 @@ const ShowHeader = (props: ShowHeaderProps) => {
         </Link>
         <Flex flexDirection="column" my={4} p={[0, 0, 0, 4]}>
           <Flex flexDirection={["column", "row", "row", "row"]}>
-            <Rating rating={props.rating} />
+            <Rating rating={props.rating} showNumbers />
           </Flex>
           <ShowTitle fontSize={4} my={4}>
             {props.name}
