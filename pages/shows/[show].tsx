@@ -5,7 +5,6 @@ import ErrorPage from "next/error";
 import Head from "next/head";
 import Header from "../../components/core/Header";
 import Layout from "../../components/core/Layout";
-import React from "react";
 import ShowBody from "../../components/ShowBody";
 import ShowHeader from "../../components/ShowHeader";
 import { useRouter } from "next/router";
@@ -76,7 +75,6 @@ const Show = (props: ShowPageProps) => {
 
 Show.getInitialProps = async (ctx: any) => {
   try {
-    throw new Error();
     const res = await fetch(
       `http://api.tvmaze.com/shows/${ctx.query.show}?embed=cast`
     );
