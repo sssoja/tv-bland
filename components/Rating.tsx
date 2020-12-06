@@ -41,12 +41,12 @@ const Rating = (props: RatingProps) => {
     return <NoRating fontSize={1}>No rating</NoRating>;
   }
 
-  const average = props.rating.average / 2;
   const maxRating = 5;
-  const roundedAverage = Math.round(average / 2);
+  const average = (props.rating.average / 2).toFixed(1);
+  const roundedAverage = Math.round(props.rating.average / 2);
   const emptyStars = maxRating - roundedAverage;
 
-  const rating = average === 0 ? roundedAverage : average.toFixed(1);
+  const rating = roundedAverage === 0 ? roundedAverage : average;
 
   const renderFullStars = () => {
     return roundedAverage !== 0
