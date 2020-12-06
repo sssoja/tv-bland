@@ -53,13 +53,6 @@ const ShowHeader = (props: ShowHeaderProps) => {
         </Link>
         <Flex flexDirection="column" my={4} p={[0, 0, 0, 4]}>
           <Flex flexDirection={["column", "row", "row", "row"]}>
-            <Flex mr={4}>
-              <FontAwesomeIcon icon={faStar} color="grey" />
-              <FontAwesomeIcon icon={faStar} color="grey" />
-              <FontAwesomeIcon icon={faStar} color="grey" />
-              <FontAwesomeIcon icon={faStar} color="lightGrey" />
-              <FontAwesomeIcon icon={faStar} color="lightGrey" />
-            </Flex>
             <Rating rating={props.rating} />
           </Flex>
           <ShowTitle fontSize={4} my={4}>
