@@ -15,8 +15,8 @@ import {
   typography,
 } from "styled-system";
 
-import Flex from "./styled/Flex";
-import Grid from "./styled/Grid";
+import Flex from "./styles/Flex";
+import Grid from "./styles/Grid";
 import styled from "styled-components";
 
 type CastProps = BorderProps &

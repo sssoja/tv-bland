@@ -1,5 +1,5 @@
 import { EpisodeType } from "../../pages/shows/[show]";
-import Padding from "../styled/Padding";
+import Padding from "../styles/Padding";
 import Shows from "../Shows";
 
 type EpisodesType = EpisodeType[];

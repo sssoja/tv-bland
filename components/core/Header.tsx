@@ -1,5 +1,5 @@
 import Link from "next/link";
-import Padding from "../styled/Padding";
+import Padding from "../styles/Padding";
 
 const Header = () => {
   return (

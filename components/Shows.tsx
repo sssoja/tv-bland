@@ -1,8 +1,8 @@
 import { EpisodeType } from "../pages/shows/[show]";
-import Grid from "./styled/Grid";
+import Grid from "./styles/Grid";
 import Image from "next/image";
 import Link from "next/link";
-import Padding from "./styled/Padding";
+import Padding from "./styles/Padding";
 import Rating from "./Rating";
 import styled from "styled-components";
 
