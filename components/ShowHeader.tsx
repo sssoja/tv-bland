@@ -41,7 +41,6 @@ interface ShowHeaderProps {
   rating: { average: number };
 }
 
-// TO DO replace the 5 placeholder stars on lines 57 - 61 with the result of renderFullStars()
 const ShowHeader = (props: ShowHeaderProps) => {
   return (
     <Padding px={6} pb={[0, 0, 0, 6]}>
