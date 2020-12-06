@@ -1,5 +1,6 @@
 import { CastMemberType } from "../../components/CastList";
 import Container from "../../components/core/Container";
+import ErrorMessage from "../../components/ErrorMessage";
 import ErrorPage from "next/error";
 import Head from "next/head";
 import Header from "../../components/core/Header";
@@ -34,7 +35,7 @@ const fallbackImage = "/assets/avatar.jpeg";
 
 const Show = (props: ShowPageProps) => {
   if (!props.show || !props.castList) {
-    return "Sorry, there was an error getting the data here";
+    return <ErrorMessage />;
   }
   const { name, summary, rating, image } = props.show;
 
