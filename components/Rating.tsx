@@ -1,4 +1,4 @@
-import { SpaceProps, TypographyProps, space, typography } from "styled-system";
+import { TypographyProps, typography } from "styled-system";
 
 import Flex from "./styled/Flex";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -9,14 +9,17 @@ interface ShowProps {
   rating: { average: number | null };
 }
 
-const NumberRating = styled.p<TypographyProps & SpaceProps>`
+const NoRating = styled.p<TypographyProps>`
   ${typography};
-  ${space};
+`;
+
+const NumberRating = styled.p<TypographyProps>`
+  ${typography};
 `;
 
 const Rating = (props: ShowProps) => {
   if (props.rating.average === null) {
-    return <NumberRating fontSize={1}>No rating</NumberRating>;
+    return <NoRating fontSize={1}>No rating</NoRating>;
   }
   const rating = Math.round(props.rating.average / 2);
   const maxRating = 5;
