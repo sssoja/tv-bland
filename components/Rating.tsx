@@ -1,9 +1,9 @@
 import {
-  FlexboxProps,
+  ColorProps,
   LayoutProps,
   SpaceProps,
   TypographyProps,
-  flexbox,
+  color,
   layout,
   space,
   typography,
@@ -20,15 +20,16 @@ interface RatingProps {
   showNumbers?: boolean;
 }
 
-const NoRating = styled.p<TypographyProps>`
+const NoRating = styled.p<TypographyProps & ColorProps & SpaceProps>`
   ${typography};
+  ${color};
+  ${space};
 `;
 
-const RatingContainer = styled.div<LayoutProps & SpaceProps & FlexboxProps>`
+const RatingContainer = styled.div<LayoutProps & SpaceProps>`
   display: flex;
   ${layout};
   ${space};
-  ${flexbox};
 `;
 
 const NumberRating = styled.p<TypographyProps & SpaceProps>`
@@ -36,9 +37,18 @@ const NumberRating = styled.p<TypographyProps & SpaceProps>`
   ${space};
 `;
 
+const Span = styled.span<SpaceProps & TypographyProps>`
+  flex-direction: row;
+  ${typography};
+`;
+
 const Rating = (props: RatingProps) => {
   if (props.rating.average === null) {
-    return <NoRating fontSize={1}>No rating</NoRating>;
+    return (
+      <NoRating fontSize={1} color="grey" my={1}>
+        No rating
+      </NoRating>
+    );
   }
 
   const maxRating = 5;
@@ -73,9 +83,9 @@ const Rating = (props: RatingProps) => {
   };
 
   return (
-    <RatingContainer display={props.display}>
-      <span>{renderFullStars()}</span>
-      <span>{renderEmptyStars()}</span>
+    <RatingContainer display={props.display} my={1}>
+      <Span fontSize={2}>{renderFullStars()}</Span>
+      <Span fontSize={2}>{renderEmptyStars()}</Span>
       {props.showNumbers && (
         <NumberRating fontSize={1} mx={2}>
           {rating} / 5
