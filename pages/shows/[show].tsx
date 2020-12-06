@@ -1,4 +1,5 @@
-import { CastMemberType } from "../../components/CastList";
+import CastList, { CastMemberType } from "../../components/CastList";
+
 import Container from "../../components/core/Container";
 import ErrorPage from "next/error";
 import Head from "next/head";
@@ -9,8 +10,8 @@ import ShowHeader from "../../components/ShowHeader";
 import { useRouter } from "next/router";
 
 export type ShowPageProps = {
-  show: ShowType;
-  castList: CastMemberType[];
+  show: ShowType | null;
+  castList: CastMemberType[] | null;
 };
 
 export type EpisodeType = {
@@ -33,6 +34,9 @@ export type ShowType = {
 const fallbackImage = "/assets/avatar.jpeg";
 
 const Show = (props: ShowPageProps) => {
+  if (!props.show || !props.castList) {
+    return "Sorry, there was an error getting the data here";
+  }
   const {
     name,
     summary,
@@ -87,28 +91,32 @@ const Show = (props: ShowPageProps) => {
 };
 
 Show.getInitialProps = async (ctx: any) => {
-  const res = await fetch(
-    `http://api.tvmaze.com/shows/${ctx.query.show}?embed=cast`
-  );
+  try {
+    const res = await fetch(
+      `http://api.tvmaze.com/shows/${ctx.query.show}?embed=cast`
+    );
 
-  const json = await res.json();
+    const json = await res.json();
 
-  const cast = json._embedded ? json._embedded.cast : [];
+    const cast = json._embedded ? json._embedded.cast : [];
 
-  return {
-    show: {
-      name: json.name,
-      image: json.image,
-      summary: json.summary,
-      rating: json.rating,
-      genres: json.genres,
-      network: json.network,
-      schedule: json.schedule,
-      status: json.status,
-      url: json.url,
-    },
-    castList: cast,
-  };
+    return {
+      show: {
+        name: json.name,
+        image: json.image,
+        summary: json.summary,
+        rating: json.rating,
+        genres: json.genres,
+        network: json.network,
+        schedule: json.schedule,
+        status: json.status,
+        url: json.url,
+      },
+      castList: cast,
+    };
+  } catch (error) {
+    return { show: null, castList: null };
+  }
 };
 
 export default Show;
