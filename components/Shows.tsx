@@ -1,3 +1,5 @@
+import { TypographyProps, typography } from "styled-system";
+
 import { EpisodeType } from "../pages/shows/[show]";
 import Grid from "./styles/Grid";
 import Image from "next/image";
@@ -10,6 +12,10 @@ const Div = styled.div`
   transition: transform 0.5s;
   &:hover {
     transform: scale(1.05);
+`;
+
+const ShowTitle = styled.p<TypographyProps>`
+  ${typography}
 `;
 
 const fallbackImage = "/assets/avatar.jpeg";
@@ -32,7 +38,7 @@ const Show = (props: ShowProps) => {
             height={639}
           />
           <Rating rating={show.rating} display={responsiveDisplays} />
-          <p>{show.name}</p>
+          <ShowTitle fontSize={2}>{show.name}</ShowTitle>
         </Div>
       </a>
     </Link>
