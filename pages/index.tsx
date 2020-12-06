@@ -2,7 +2,7 @@ import Container from "../components/core/Container";
 import { EpisodeType } from "./shows/[show]";
 import Head from "next/head";
 import Header from "../components/core/Header";
-import Intro from "../components/core/Intro";
+import Intro from "../components/Intro";
 import Layout from "../components/core/Layout";
 
 type EpisodesType = EpisodeType[];
