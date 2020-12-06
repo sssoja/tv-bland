@@ -1,5 +1,4 @@
-import CastList, { CastMemberType } from "../../components/CastList";
-
+import { CastMemberType } from "../../components/CastList";
 import Container from "../../components/core/Container";
 import ErrorPage from "next/error";
 import Head from "next/head";
@@ -37,17 +36,7 @@ const Show = (props: ShowPageProps) => {
   if (!props.show || !props.castList) {
     return "Sorry, there was an error getting the data here";
   }
-  const {
-    name,
-    summary,
-    rating,
-    genres,
-    status,
-    schedule,
-    url,
-    image,
-    network,
-  } = props.show;
+  const { name, summary, rating, image } = props.show;
 
   const showImage = image ? image.medium : fallbackImage;
 
@@ -74,14 +63,7 @@ const Show = (props: ShowPageProps) => {
                 summary={summary}
                 rating={rating}
               />
-              <ShowBody
-                genres={genres}
-                network={network}
-                schedule={schedule}
-                status={status}
-                url={url}
-                castList={props.castList}
-              />
+              <ShowBody show={props.show} castList={props.castList} />
             </article>
           </>
         )}
