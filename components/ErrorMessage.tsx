@@ -2,7 +2,6 @@ import { SpaceProps, TypographyProps, space, typography } from "styled-system";
 
 import Flex from "./styles/Flex";
 import Link from "next/link";
-import React from "react";
 import styled from "styled-components";
 
 const Message = styled.p<TypographyProps>`
