@@ -76,7 +76,7 @@ const Show = (props: ShowPageProps) => {
 Show.getInitialProps = async (ctx: any) => {
   try {
     const res = await fetch(
-      `http://api.tvmaze.com/shows/${ctx.query.show}?embed=cast`
+      `https://api.tvmaze.com/shows/${ctx.query.show}?embed=cast`
     );
 
     const json = await res.json();
