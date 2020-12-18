@@ -1,4 +1,4 @@
-import { EpisodeType } from "../pages/show";
+import { EpisodeType } from "../pages/shows/show";
 import Padding from "./styles/Padding";
 import Shows from "./Shows";
 
