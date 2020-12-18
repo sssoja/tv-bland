@@ -27,7 +27,7 @@ const Home = ({ shows }: ShowsProps) => {
 
 Home.getInitialProps = async () => {
   try {
-    const res = await fetch("http://api.tvmaze.com/schedule?country=US");
+    const res = await fetch("http://api.tvmaze.com/schedule?country=GB");
     const json = await res.json();
 
     // de-duplicating episodes thanks to:
