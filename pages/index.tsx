@@ -1,6 +1,5 @@
 import Container from "../components/core/Container";
 import { EpisodeType } from "./shows/[show]";
-import ErrorMessage from "../components/ErrorMessage";
 import Head from "next/head";
 import Header from "../components/core/Header";
 import Intro from "../components/Intro";
@@ -10,7 +9,7 @@ import React from "react";
 type EpisodesType = EpisodeType[];
 
 type ShowsProps = {
-  shows: EpisodesType | null;
+  shows: EpisodesType;
 };
 
 const Home = ({ shows }: ShowsProps) => {
@@ -21,7 +20,7 @@ const Home = ({ shows }: ShowsProps) => {
       </Head>
       <Container>
         <Header />
-        {shows ? <Intro shows={shows} /> : <ErrorMessage />}
+        <Intro shows={shows} />
       </Container>
     </Layout>
   );
