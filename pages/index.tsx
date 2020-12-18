@@ -4,7 +4,6 @@ import Head from "next/head";
 import Header from "../components/core/Header";
 import Intro from "../components/Intro";
 import Layout from "../components/core/Layout";
-import React from "react";
 
 type EpisodesType = EpisodeType[];
 
