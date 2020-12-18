@@ -1,5 +1,5 @@
 import Container from "../components/core/Container";
-import { EpisodeType } from "./shows/show";
+import { EpisodeType } from "./shows/[show]";
 import ErrorMessage from "../components/ErrorMessage";
 import Head from "next/head";
 import Header from "../components/core/Header";

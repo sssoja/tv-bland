@@ -9,7 +9,7 @@ import {
 
 import Grid from "./styles/Grid";
 import Padding from "./styles/Padding";
-import { ShowType } from "../pages/shows/show";
+import { ShowType } from "../pages/shows/[show]";
 import styled from "styled-components";
 
 const ShowInfoListItem = styled.li`
