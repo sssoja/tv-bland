@@ -1,12 +1,12 @@
-import { CastMemberType } from "../components/CastList";
-import Container from "../components/core/Container";
-import ErrorMessage from "../components/ErrorMessage";
+import { CastMemberType } from "../../components/CastList";
+import Container from "../../components/core/Container";
+import ErrorMessage from "../../components/ErrorMessage";
 import ErrorPage from "next/error";
 import Head from "next/head";
-import Header from "../components/core/Header";
-import Layout from "../components/core/Layout";
-import ShowBody from "../components/ShowBody";
-import ShowHeader from "../components/ShowHeader";
+import Header from "../../components/core/Header";
+import Layout from "../../components/core/Layout";
+import ShowBody from "../../components/ShowBody";
+import ShowHeader from "../../components/ShowHeader";
 import { useRouter } from "next/router";
 
 export type ShowPageProps = {
