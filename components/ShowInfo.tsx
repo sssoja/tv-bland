@@ -10,7 +10,7 @@ import {
 import Grid from "./styles/Grid";
 import Padding from "./styles/Padding";
 import React from "react";
-import { ShowType } from "../pages/shows/[show]";
+import { ShowType } from "../pages/show";
 import styled from "styled-components";
 
 const ShowInfoListItem = styled.li`

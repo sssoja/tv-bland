@@ -4,7 +4,7 @@ import Grid from "./styles/Grid";
 import Padding from "./styles/Padding";
 import React from "react";
 import ShowInfo from "./ShowInfo";
-import { ShowType } from "../pages/shows/[show]";
+import { ShowType } from "../pages/show";
 
 type ShowBodyProps = {
   show: ShowType;

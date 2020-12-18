@@ -1,6 +1,6 @@
 import { TypographyProps, typography } from "styled-system";
 
-import { EpisodeType } from "../pages/shows/[show]";
+import { EpisodeType } from "../pages/show";
 import Grid from "./styles/Grid";
 import Image from "next/image";
 import Link from "next/link";
