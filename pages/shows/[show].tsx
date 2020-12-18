@@ -10,7 +10,7 @@ import ShowHeader from "../../components/ShowHeader";
 import { useRouter } from "next/router";
 
 export type ShowPageProps = {
-  show: ShowType | null;
+  show: ShowType;
   castList: CastMemberType[] | null;
 };
 
