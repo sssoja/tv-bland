@@ -34,9 +34,6 @@ export type ShowType = {
 const fallbackImage = "/assets/avatar.jpeg";
 
 const Show = (props: ShowPageProps) => {
-  if (!props.show || !props.castList) {
-    return <ErrorMessage />;
-  }
   const { name, summary, rating, image } = props.show;
 
   const showImage = image ? image.medium : fallbackImage;
