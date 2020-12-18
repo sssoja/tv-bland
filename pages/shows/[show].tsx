@@ -11,7 +11,7 @@ import { useRouter } from "next/router";
 
 export type ShowPageProps = {
   show: ShowType;
-  castList: CastMemberType[] | null;
+  castList: CastMemberType[];
 };
 
 export type EpisodeType = {
